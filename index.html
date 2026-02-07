@@ -1,0 +1,1636 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Metadatos básicos -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kazehana Cloud PMS | Hospitality Operations, Simplified</title>
+    <meta
+      name="description"
+      content="Kazehana Cloud PMS is a modern property management system for hotels and restaurants."
+    />
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Manrope:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Estilos principales -->
+    <style>
+      :root {
+        --ink: #102a2e;
+        --muted: #4b5b5e;
+        --accent: #e4572e;
+        --accent-soft: #f7c6b7;
+        --leaf: #139c7f;
+        --sand: #f7f2ea;
+        --sky: #e3f1f1;
+        --card: #ffffff;
+        --shadow: 0 18px 45px rgba(16, 42, 46, 0.12);
+        --radius-lg: 24px;
+        --radius-md: 16px;
+        --radius-sm: 10px;
+        --header-height: 78px;
+        --toggle-size: 36px;
+        --toggle-gap: 10px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Manrope", "Segoe UI", sans-serif;
+        color: var(--ink);
+        background: radial-gradient(circle at top, #fffefd 0%, var(--sky) 45%, var(--sand) 100%);
+        min-height: 100vh;
+      }
+
+      html {
+        scroll-padding-top: var(--header-height);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page {
+        position: relative;
+        overflow: hidden;
+        padding-top: var(--header-height);
+      }
+
+      .halo {
+        position: absolute;
+        width: 460px;
+        height: 460px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(27, 165, 119, 0.22), rgba(42, 127, 98, 0));
+        filter: blur(1px);
+        z-index: 0;
+      }
+
+      .halo.one {
+        top: -120px;
+        left: -80px;
+      }
+
+      .halo.two {
+        bottom: -160px;
+        right: -110px;
+        background: radial-gradient(circle, rgba(228, 87, 46, 0.22), rgba(228, 87, 46, 0));
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 20;
+        padding: 16px 7vw 26px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(247, 242, 234, 0.92);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(16, 42, 46, 0.08);
+        box-shadow: 0 10px 25px rgba(16, 42, 46, 0.08);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      header.is-collapsed {
+        transform: translateY(calc(-100% + var(--toggle-size) + var(--toggle-gap)));
+        box-shadow: none;
+      }
+
+      header.is-collapsed .brand,
+      header.is-collapsed .header-actions {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 700;
+        transition: opacity 0.2s ease;
+      }
+
+      .brand-mark {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--leaf), #9bd7c5);
+        display: grid;
+        place-items: center;
+        color: #fff;
+        font-family: "Fraunces", serif;
+        font-size: 20px;
+      }
+
+  
+
+      .logo {
+        width: 100px;
+        height: 100px;
+        display: grid;
+        place-items: center;
+      }
+
+      .logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        transition: opacity 0.2s ease;
+      }
+
+      .header-toggle {
+        position: relative;
+        width: var(--toggle-size);
+        height: var(--toggle-size);
+        border-radius: 999px;
+        border: 1px solid rgba(16, 42, 46, 0.2);
+        background: #fff;
+        color: var(--ink);
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        box-shadow: 0 8px 16px rgba(16, 42, 46, 0.12);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+
+      .header-toggle span {
+        display: block;
+        transition: transform 0.2s ease;
+        font-size: 1rem;
+        line-height: 1;
+      }
+
+      header.is-collapsed .header-toggle span {
+        transform: rotate(180deg);
+      }
+
+      header:not(.is-collapsed) .header-toggle {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-6px);
+      }
+
+      header:not(.is-collapsed):hover .header-toggle,
+      header:not(.is-collapsed):focus-within .header-toggle {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      header.is-collapsed .header-toggle {
+        position: absolute;
+        left: 50%;
+        bottom: var(--toggle-gap);
+        transform: translateX(-50%);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      nav {
+        display: flex;
+        gap: 26px;
+        font-weight: 600;
+        color: var(--muted);
+      }
+
+      nav a {
+        position: relative;
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transition: width 0.3s ease;
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      .lang-select {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      .lang-select label {
+        font-weight: 600;
+      }
+
+      .lang-select select {
+        border: 1px solid rgba(16, 42, 46, 0.2);
+        border-radius: 999px;
+        padding: 6px 14px;
+        font-family: inherit;
+        background: #fff;
+        color: var(--ink);
+      }
+
+      .hero {
+        position: relative;
+        z-index: 1;
+        padding: 50px 7vw 90px;
+        display: grid;
+        gap: 48px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        align-items: center;
+        scroll-margin-top: calc(var(--header-height) + 18px);
+      }
+
+      .hero h1 {
+        font-family: "Fraunces", serif;
+        font-size: clamp(2.5rem, 3.3vw + 1.5rem, 4.2rem);
+        margin: 0 0 20px;
+        line-height: 1.08;
+      }
+
+      .hero p {
+        font-size: 1.05rem;
+        color: var(--muted);
+        line-height: 1.7;
+        margin: 0 0 28px;
+        max-width: 520px;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        border-radius: 999px;
+        padding: 14px 28px;
+        font-weight: 600;
+        border: 1px solid transparent;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn.primary {
+        background: var(--accent);
+        color: #fff;
+        box-shadow: 0 16px 30px rgba(228, 87, 46, 0.26);
+      }
+
+      .btn.secondary {
+        background: transparent;
+        border-color: var(--ink);
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .hero-card {
+        background: var(--card);
+        border-radius: var(--radius-lg);
+        padding: 28px;
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-card::before {
+        content: "";
+        position: absolute;
+        top: -40px;
+        right: -60px;
+        width: 160px;
+        height: 160px;
+        background: radial-gradient(circle, rgba(228, 87, 46, 0.25), transparent 70%);
+      }
+
+      .hero-note {
+        margin-top: 20px;
+        color: var(--muted);
+      }
+
+      .metric-grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        margin-top: 18px;
+      }
+
+      .metric {
+        padding: 16px;
+        border-radius: var(--radius-md);
+        background: #f7fbfb;
+      }
+
+      .metric h3 {
+        margin: 0 0 6px;
+        font-size: 1.25rem;
+      }
+
+      .section {
+        padding: 70px 7vw;
+        position: relative;
+        z-index: 1;
+        scroll-margin-top: calc(var(--header-height) + 18px);
+      }
+
+      .section h2 {
+        font-family: "Fraunces", serif;
+        font-size: clamp(2rem, 1.6vw + 1.3rem, 3rem);
+        margin: 0 0 18px;
+      }
+
+      .section p.lead {
+        color: var(--muted);
+        max-width: 640px;
+        line-height: 1.7;
+        margin-top: 0;
+      }
+
+      .module-grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        margin-top: 20px;
+      }
+
+      .module-card {
+        background: var(--card);
+        border-radius: var(--radius-md);
+        padding: 14px;
+        display: grid;
+        gap: 10px;
+        align-items: center;
+        justify-items: center;
+        text-align: center;
+        border: 1px solid rgba(16, 42, 46, 0.08);
+        box-shadow: 0 12px 24px rgba(16, 42, 46, 0.1);
+        min-height: 150px;
+        overflow: hidden;
+      }
+
+      .module-card img {
+        width: clamp(150px, 60%, 150px);
+        height: clamp(150px, 60%, 150px);
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        object-fit: contain;
+      }
+
+      .module-card span {
+        font-weight: 600;
+      }
+
+      .card-grid {
+        display: grid;
+        gap: 22px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        margin-top: 32px;
+      }
+
+      .card {
+        background: var(--card);
+        border-radius: var(--radius-md);
+        padding: 22px;
+        box-shadow: 0 12px 24px rgba(16, 42, 46, 0.1);
+        border: 1px solid rgba(16, 42, 46, 0.06);
+      }
+
+      .card h3 {
+        margin-top: 0;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 18px;
+        margin-top: 28px;
+      }
+
+      .timeline-item {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: auto 1fr;
+        background: #fefcf8;
+        border-radius: var(--radius-md);
+        padding: 18px 22px;
+        border: 1px solid rgba(228, 87, 46, 0.15);
+      }
+
+      .timeline-item span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background: var(--accent-soft);
+        font-weight: 700;
+      }
+
+      .testimonial {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        margin-top: 32px;
+      }
+
+      .quote {
+        background: var(--card);
+        border-radius: var(--radius-md);
+        padding: 22px;
+        box-shadow: var(--shadow);
+      }
+
+      .quote p {
+        margin-top: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .cta {
+        background: linear-gradient(120deg, rgba(42, 127, 98, 0.12), rgba(228, 87, 46, 0.18));
+        border-radius: var(--radius-lg);
+        padding: 36px;
+        display: grid;
+        grid-template-columns: minmax(220px, 1fr) minmax(260px, 1.1fr);
+        gap: 24px;
+        align-items: start;
+      }
+
+      .cta-copy {
+        max-width: 520px;
+      }
+
+      .cta-lead {
+        margin-bottom: 0;
+      }
+
+      .cta-form {
+        background: rgba(255, 255, 255, 0.75);
+        border-radius: var(--radius-md);
+        padding: 20px;
+        border: 1px solid rgba(16, 42, 46, 0.12);
+        box-shadow: 0 12px 24px rgba(16, 42, 46, 0.08);
+        display: grid;
+        gap: 16px;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .field {
+        display: grid;
+        gap: 6px;
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      .field span {
+        font-weight: 600;
+        color: var(--ink);
+        font-size: 0.85rem;
+      }
+
+      .field input,
+      .field select,
+      .field textarea {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 12px;
+        border: 1px solid rgba(16, 42, 46, 0.18);
+        background: #fff;
+        font-family: inherit;
+        font-size: 0.95rem;
+        color: var(--ink);
+      }
+
+      .field textarea {
+        min-height: 96px;
+        resize: vertical;
+      }
+
+      .form-footer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .form-note {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+
+      footer {
+        padding: 40px 7vw 60px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .fade-in {
+        opacity: 0;
+        transform: translateY(14px);
+        animation: fadeUp 0.7s ease forwards;
+      }
+
+      .fade-in.delay-1 {
+        animation-delay: 0.15s;
+      }
+
+      .fade-in.delay-2 {
+        animation-delay: 0.3s;
+      }
+
+      .fade-in.delay-3 {
+        animation-delay: 0.45s;
+      }
+
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 780px) {
+        :root {
+          --header-height: 120px;
+        }
+
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+        }
+
+        .header-actions {
+          width: 100%;
+          justify-content: flex-start;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 12px;
+        }
+
+        nav {
+          flex-wrap: wrap;
+          gap: 10px 14px;
+          width: 100%;
+        }
+
+        nav a {
+          font-size: 0.95rem;
+          white-space: nowrap;
+        }
+
+        .lang-select {
+          width: 100%;
+          justify-content: flex-start;
+        }
+
+        .lang-select select {
+          width: 100%;
+          max-width: 240px;
+        }
+
+        header:not(.is-collapsed) .header-toggle {
+          opacity: 1;
+          pointer-events: auto;
+          transform: none;
+        }
+
+        .cta {
+          grid-template-columns: 1fr;
+        }
+
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 520px) {
+        nav {
+          gap: 8px 12px;
+        }
+
+        nav a {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="halo one"></div>
+      <div class="halo two"></div>
+
+      <!-- Cabecera: marca, navegación y selector de idioma -->
+      <header>
+        <div class="brand">
+          <div class="logo"><img src="Log/kazehanalogo.png" alt="Kazehana logo" /></div>
+          <span>Kazehana Cloud PMS</span>
+        </div>
+        <div class="header-actions">
+          <nav>
+            <a href="#platform" data-i18n="navPlatform">Platform</a>
+            <a href="#workflow" data-i18n="navWorkflow">Workflow</a>
+            <a href="#teams" data-i18n="navTeams">Teams</a>
+            <a href="#contact" data-i18n="navContact">Contact</a>
+          </nav>
+          <div class="lang-select">
+            <label for="langSelect" data-i18n="languageLabel">Language</label>
+            <select id="langSelect" aria-label="Language selector">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="fr">Français</option>
+              <option value="pt">Português</option>
+              <option value="it">Italiano</option>
+              <option value="ja">日本語</option>
+            </select>
+          </div>
+        </div>
+        <button class="header-toggle" id="headerToggle" type="button" aria-label="Toggle header">
+          <span>▾</span>
+        </button>
+      </header>
+
+      <!-- Sección hero / portada -->
+      <section class="hero" id="platform">
+        <div>
+          <h1 class="fade-in" data-i18n="heroTitle">Operations clarity for hotel teams.</h1>
+          <p class="fade-in delay-1" data-i18n="heroBody">
+            Kazehana Cloud PMS connects reservations, table flow, housekeeping, and
+            finance into one calm workspace. Stay ahead of arrivals, protect
+            margins, and keep every guest journey intentional.
+          </p>
+          <div class="hero-actions fade-in delay-2">
+            <a class="btn primary" href="#contact" data-i18n="heroPrimary">Schedule a demo</a>
+            <a class="btn secondary" href="#workflow" data-i18n="heroSecondary">Explore workflow</a>
+          </div>
+        </div>
+
+        <div class="hero-card fade-in delay-3">
+          <strong data-i18n="todayTitle">Today at a glance</strong>
+          <div class="metric-grid">
+            <div class="metric">
+              <h3>92%</h3>
+              <span data-i18n="metricOccupancy">Occupancy</span>
+            </div>
+            <div class="metric">
+              <h3>14</h3>
+              <span data-i18n="metricArrivals">Arrivals</span>
+            </div>
+            <div class="metric">
+              <h3>6</h3>
+              <span data-i18n="metricVip">VIP stays</span>
+            </div>
+            <div class="metric">
+              <h3>$48k</h3>
+              <span data-i18n="metricRevenue">Projected revenue</span>
+            </div>
+          </div>
+          <p class="hero-note" data-i18n="todayBody">
+            Real-time insights across rooms, restaurants, and spa services in one
+            view.
+          </p>
+        </div>
+      </section>
+
+      <!-- Sección módulos / iconos -->
+      <section class="section">
+        <h2 data-i18n="modulesTitle">Modules that run the hotel.</h2>
+        <p class="lead" data-i18n="modulesLead">
+          Core areas connected in one platform, from front desk to e-invoicing.
+        </p>
+        <div class="module-grid">
+          <div class="module-card">
+            <img src="ico/frontdesk.png" alt="Front desk" loading="lazy" />
+            <span data-i18n="moduleFrontdesk">Front desk</span>
+          </div>
+          <div class="module-card">
+            <img src="ico/restaurant.png" alt="Restaurant" loading="lazy" />
+            <span data-i18n="moduleRestaurant">Restaurant</span>
+          </div>
+          <div class="module-card">
+            <img src="ico/management.png" alt="Management" loading="lazy" />
+            <span data-i18n="moduleManagement">Management</span>
+          </div>
+          <div class="module-card">
+            <img src="ico/accounting.png" alt="Accounting" loading="lazy" />
+            <span data-i18n="moduleAccounting">Accounting</span>
+          </div>
+          <div class="module-card">
+            <img src="ico/einvoice.png" alt="E-invoice" loading="lazy" />
+            <span data-i18n="moduleEinvoice">E-invoicing</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección equipos / beneficios clave -->
+      <section class="section" id="teams">
+        <h2 data-i18n="teamsTitle">Built for teams that move fast.</h2>
+        <p class="lead" data-i18n="teamsLead">
+          From front desk to F&B, every department gets a dashboard that surfaces
+          exactly what matters. No noise, no fragmented tools.
+        </p>
+
+        <div class="card-grid">
+          <div class="card">
+            <h3 data-i18n="card1Title">Unified reservations</h3>
+            <p data-i18n="card1Body">
+              Manage room and table inventory in one place with live availability
+              updates and intelligent overbooking safeguards.
+            </p>
+          </div>
+          <div class="card">
+            <h3 data-i18n="card2Title">Housekeeping orchestration</h3>
+            <p data-i18n="card2Body">
+              Assign, track, and verify room readiness with automated alerts and
+              mobile-ready checklists.
+            </p>
+          </div>
+          <div class="card">
+            <h3 data-i18n="card3Title">Revenue signals</h3>
+            <p data-i18n="card3Body">
+              Tie add-ons, packages, and restaurant spend to each stay to reveal
+              the true value of every guest.
+            </p>
+          </div>
+          <div class="card">
+            <h3 data-i18n="card4Title">Compliance ready</h3>
+            <p data-i18n="card4Body">
+              Export clean audit trails, nightly reports, and folios in seconds.
+              Stay confident during inspections.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección flujo de trabajo / onboarding -->
+      <section class="section" id="workflow">
+        <h2 data-i18n="workflowTitle">Workflow that feels effortless.</h2>
+        <p class="lead" data-i18n="workflowLead">
+          Launch in weeks, not months. We map your property, build integrations,
+          and train your team with concierge-level support.
+        </p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <span>1</span>
+            <div>
+              <strong data-i18n="step1Title">Discovery session</strong>
+              <p data-i18n="step1Body">
+                Align on your property mix, service style, and operational pain
+                points.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span>2</span>
+            <div>
+              <strong data-i18n="step2Title">System build</strong>
+              <p data-i18n="step2Body">
+                Configure room types, restaurant layouts, integrations, and guest
+                messaging.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span>3</span>
+            <div>
+              <strong data-i18n="step3Title">Launch &amp; tune</strong>
+              <p data-i18n="step3Body">
+                Go live with a dedicated success lead and optimize through the
+                first 30 days.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección testimonios -->
+      <section class="section">
+        <h2 data-i18n="trustTitle">Trusted by service-first operators.</h2>
+        <p class="lead" data-i18n="trustLead">
+          Teams love the calm interface and the speed it brings to daily
+          decisions.
+        </p>
+
+        <div class="testimonial">
+          <div class="quote">
+            <p data-i18n="quote1">
+              “We reduced late check-ins by 40% in the first month. The dashboard
+              makes every shift change seamless.”
+            </p>
+            <strong>Akari Hotel</strong>
+          </div>
+          <div class="quote">
+            <p data-i18n="quote2">
+              “Our restaurant and rooms finally talk to each other. We plan menus
+              based on arrivals and it just works.”
+            </p>
+            <strong>Seabird Hospitality Group</strong>
+          </div>
+          <div class="quote">
+            <p data-i18n="quote3">
+              “Training new staff takes days, not weeks. The workflows are
+              intuitive and guided.”
+            </p>
+            <strong>Maison Aira Retreat</strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección contacto / llamada a la acción -->
+      <section class="section" id="contact">
+        <div class="cta">
+          <div class="cta-copy">
+            <h2 data-i18n="ctaTitle">Ready to see Kazehana Cloud in action?</h2>
+            <p class="lead cta-lead" data-i18n="ctaBody">
+              Share your property details and we will send a tailored demo deck
+              within 48 hours.
+            </p>
+          </div>
+          <form
+            class="cta-form"
+            action="mailto:hello@kazehana.io"
+            method="post"
+            enctype="text/plain"
+          >
+            <div class="form-grid">
+              <label class="field">
+                <span data-i18n="formNameLabel">Full name</span>
+                <input
+                  type="text"
+                  name="name"
+                  autocomplete="name"
+                  required
+                  data-i18n-placeholder="formNamePlaceholder"
+                  placeholder="Jane Doe"
+                />
+              </label>
+              <label class="field">
+                <span data-i18n="formCompanyLabel">Hotel / Company</span>
+                <input
+                  type="text"
+                  name="company"
+                  autocomplete="organization"
+                  required
+                  data-i18n-placeholder="formCompanyPlaceholder"
+                  placeholder="Kazehana Hotels"
+                />
+              </label>
+              <label class="field">
+                <span data-i18n="formEmailLabel">Work email</span>
+                <input
+                  type="email"
+                  name="email"
+                  autocomplete="email"
+                  required
+                  data-i18n-placeholder="formEmailPlaceholder"
+                  placeholder="name@hotel.com"
+                />
+              </label>
+              <label class="field">
+                <span data-i18n="formPhoneLabel">Phone</span>
+                <input
+                  type="tel"
+                  name="phone"
+                  autocomplete="tel"
+                  data-i18n-placeholder="formPhonePlaceholder"
+                  placeholder="+1 555 123 4567"
+                />
+              </label>
+              <label class="field">
+                <span data-i18n="formRoomsLabel">Rooms</span>
+                <input
+                  type="number"
+                  name="rooms"
+                  min="1"
+                  data-i18n-placeholder="formRoomsPlaceholder"
+                  placeholder="120"
+                />
+              </label>
+              <label class="field">
+                <span data-i18n="formLocationLabel">City / Country</span>
+                <input
+                  type="text"
+                  name="location"
+                  autocomplete="address-level2"
+                  data-i18n-placeholder="formLocationPlaceholder"
+                  placeholder="San José, Costa Rica"
+                />
+              </label>
+            </div>
+            <label class="field">
+              <span data-i18n="formMessageLabel">What do you need?</span>
+              <textarea
+                name="message"
+                rows="3"
+                data-i18n-placeholder="formMessagePlaceholder"
+                placeholder="Tell us about your property, goals, and timeline."
+              ></textarea>
+            </label>
+            <div class="form-footer">
+              <button class="btn primary" type="submit" data-i18n="formSubmit">
+                Request a demo
+              </button>
+              <p class="form-note" data-i18n="formNote">We reply within 48 hours.</p>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Pie de página -->
+      <footer>
+        <div data-i18n="footer">© 2026 Kazehana Cloud PMS. Crafted for hotel operations teams.</div>
+      </footer>
+    </div>
+    <!-- Script de traducciones (auto-detección + selector manual) -->
+    <script>
+      (function () {
+        const translations = {
+          en: {
+            title: "Kazehana Cloud PMS | Hospitality Operations, Simplified",
+            metaDescription:
+              "Kazehana Cloud PMS is a modern property management system for hotels and restaurants.",
+            languageLabel: "Language",
+            navPlatform: "Platform",
+            navWorkflow: "Workflow",
+            navTeams: "Teams",
+            navContact: "Contact",
+            heroTitle: "Operations clarity for hotel teams.",
+            heroBody:
+              "Kazehana Cloud PMS connects reservations, table flow, housekeeping, and finance into one calm workspace. Stay ahead of arrivals, protect margins, and keep every guest journey intentional.",
+            heroPrimary: "Schedule a demo",
+            heroSecondary: "Explore workflow",
+            todayTitle: "Today at a glance",
+            metricOccupancy: "Occupancy",
+            metricArrivals: "Arrivals",
+            metricVip: "VIP stays",
+            metricRevenue: "Projected revenue",
+            todayBody:
+              "Real-time insights across rooms, restaurants, and spa services in one view.",
+            modulesTitle: "Modules that run the hotel.",
+            modulesLead:
+              "Core areas connected in one platform, from front desk to e-invoicing.",
+            moduleFrontdesk: "Front desk",
+            moduleRestaurant: "Restaurant",
+            moduleManagement: "Management",
+            moduleAccounting: "Accounting",
+            moduleEinvoice: "E-invoicing",
+            teamsTitle: "Built for teams that move fast.",
+            teamsLead:
+              "From front desk to F&B, every department gets a dashboard that surfaces exactly what matters. No noise, no fragmented tools.",
+            card1Title: "Unified reservations",
+            card1Body:
+              "Manage room and table inventory in one place with live availability updates and intelligent overbooking safeguards.",
+            card2Title: "Housekeeping orchestration",
+            card2Body:
+              "Assign, track, and verify room readiness with automated alerts and mobile-ready checklists.",
+            card3Title: "Revenue signals",
+            card3Body:
+              "Tie add-ons, packages, and restaurant spend to each stay to reveal the true value of every guest.",
+            card4Title: "Compliance ready",
+            card4Body:
+              "Export clean audit trails, nightly reports, and folios in seconds. Stay confident during inspections.",
+            workflowTitle: "Workflow that feels effortless.",
+            workflowLead:
+              "Launch in weeks, not months. We map your property, build integrations, and train your team with concierge-level support.",
+            step1Title: "Discovery session",
+            step1Body:
+              "Align on your property mix, service style, and operational pain points.",
+            step2Title: "System build",
+            step2Body:
+              "Configure room types, restaurant layouts, integrations, and guest messaging.",
+            step3Title: "Launch & tune",
+            step3Body:
+              "Go live with a dedicated success lead and optimize through the first 30 days.",
+            trustTitle: "Trusted by service-first operators.",
+            trustLead:
+              "Teams love the calm interface and the speed it brings to daily decisions.",
+            quote1:
+              "“We reduced late check-ins by 40% in the first month. The dashboard makes every shift change seamless.”",
+            quote2:
+              "“Our restaurant and rooms finally talk to each other. We plan menus based on arrivals and it just works.”",
+            quote3:
+              "“Training new staff takes days, not weeks. The workflows are intuitive and guided.”",
+            ctaTitle: "Ready to see Kazehana Cloud in action?",
+            ctaBody:
+              "Share your property details and we will send a tailored demo deck within 48 hours.",
+            formNameLabel: "Full name",
+            formNamePlaceholder: "Jane Doe",
+            formCompanyLabel: "Hotel / Company",
+            formCompanyPlaceholder: "Kazehana Hotels",
+            formEmailLabel: "Work email",
+            formEmailPlaceholder: "name@hotel.com",
+            formPhoneLabel: "Phone",
+            formPhonePlaceholder: "+1 555 123 4567",
+            formRoomsLabel: "Rooms",
+            formRoomsPlaceholder: "120",
+            formLocationLabel: "City / Country",
+            formLocationPlaceholder: "San José, Costa Rica",
+            formMessageLabel: "What do you need?",
+            formMessagePlaceholder: "Tell us about your property, goals, and timeline.",
+            formSubmit: "Request a demo",
+            formNote: "We reply within 48 hours.",
+            ctaButton: "Start the conversation",
+            footer: "© 2026 Kazehana Cloud PMS. Crafted for hotel operations teams."
+          },
+          es: {
+            title: "Kazehana Cloud PMS | Operaciones hoteleras simplificadas",
+            metaDescription:
+              "Kazehana Cloud PMS es un sistema moderno de gestión de propiedades para hoteles y restaurantes.",
+            languageLabel: "Idioma",
+            navPlatform: "Plataforma",
+            navWorkflow: "Flujo",
+            navTeams: "Equipos",
+            navContact: "Contacto",
+            heroTitle: "Claridad operativa para equipos hoteleros.",
+            heroBody:
+              "Kazehana Cloud PMS conecta reservas, flujo de mesas, housekeeping y finanzas en un espacio tranquilo. Anticípate a las llegadas, protege márgenes y cuida cada experiencia del huésped.",
+            heroPrimary: "Agendar demo",
+            heroSecondary: "Explorar flujo",
+            todayTitle: "Resumen de hoy",
+            metricOccupancy: "Ocupación",
+            metricArrivals: "Llegadas",
+            metricVip: "Estancias VIP",
+            metricRevenue: "Ingresos proyectados",
+            todayBody:
+              "Insights en tiempo real de habitaciones, restaurantes y spa en una sola vista.",
+            modulesTitle: "Módulos que operan el hotel.",
+            modulesLead:
+              "Áreas clave conectadas en una sola plataforma, de recepción a facturación electrónica.",
+            moduleFrontdesk: "Recepción",
+            moduleRestaurant: "Restaurante",
+            moduleManagement: "Gestión",
+            moduleAccounting: "Contabilidad",
+            moduleEinvoice: "Factura electrónica",
+            teamsTitle: "Diseñado para equipos que se mueven rápido.",
+            teamsLead:
+              "De recepción a A&B, cada departamento tiene un panel con lo que importa. Sin ruido, sin herramientas fragmentadas.",
+            card1Title: "Reservas unificadas",
+            card1Body:
+              "Gestiona inventario de habitaciones y mesas en un solo lugar con disponibilidad en vivo y salvaguardas inteligentes de sobreventa.",
+            card2Title: "Orquestación de housekeeping",
+            card2Body:
+              "Asigna, sigue y verifica el estado de las habitaciones con alertas automáticas y listas móviles.",
+            card3Title: "Señales de ingresos",
+            card3Body:
+              "Conecta extras, paquetes y consumo en restaurante para revelar el valor real de cada huésped.",
+            card4Title: "Listo para cumplimiento",
+            card4Body:
+              "Exporta trazabilidad, reportes nocturnos y folios en segundos. Con tranquilidad en inspecciones.",
+            workflowTitle: "Flujo que se siente natural.",
+            workflowLead:
+              "Implementación en semanas, no meses. Mapeamos tu propiedad, creamos integraciones y entrenamos a tu equipo con soporte concierge.",
+            step1Title: "Sesión de descubrimiento",
+            step1Body:
+              "Alineamos tu mix de propiedad, estilo de servicio y puntos de dolor operativos.",
+            step2Title: "Construcción del sistema",
+            step2Body:
+              "Configuramos tipos de habitación, layout del restaurante, integraciones y mensajería al huésped.",
+            step3Title: "Lanzamiento y ajuste",
+            step3Body:
+              "Sales en vivo con un líder de éxito dedicado y optimizas los primeros 30 días.",
+            trustTitle: "Confiado por operadores centrados en el servicio.",
+            trustLead:
+              "Los equipos aman la interfaz calmada y la velocidad que aporta a las decisiones diarias.",
+            quote1:
+              "“Reducimos los check-ins tardíos en 40% el primer mes. El panel hace que cada cambio de turno sea fluido.”",
+            quote2:
+              "“Nuestro restaurante y las habitaciones por fin conversan. Planificamos menús según las llegadas y simplemente funciona.”",
+            quote3:
+              "“Capacitar al nuevo personal toma días, no semanas. Los flujos son intuitivos y guiados.”",
+            ctaTitle: "¿Listo para ver Kazehana Cloud en acción?",
+            ctaBody:
+              "Comparte los detalles de tu propiedad y enviaremos un demo personalizado en 48 horas.",
+            formNameLabel: "Nombre completo",
+            formNamePlaceholder: "Ana Pérez",
+            formCompanyLabel: "Hotel / Empresa",
+            formCompanyPlaceholder: "Kazehana Hotels",
+            formEmailLabel: "Correo de trabajo",
+            formEmailPlaceholder: "nombre@hotel.com",
+            formPhoneLabel: "Teléfono",
+            formPhonePlaceholder: "+506 5555 1234",
+            formRoomsLabel: "Habitaciones",
+            formRoomsPlaceholder: "120",
+            formLocationLabel: "Ciudad / País",
+            formLocationPlaceholder: "San José, Costa Rica",
+            formMessageLabel: "¿Qué necesitas?",
+            formMessagePlaceholder: "Cuéntanos sobre tu hotel, objetivos y tiempos.",
+            formSubmit: "Solicitar demo",
+            formNote: "Respondemos en 48 horas.",
+            ctaButton: "Inicia la conversación",
+            footer: "© 2026 Kazehana Cloud PMS. Hecho para equipos hoteleros."
+          },
+          fr: {
+            title: "Kazehana Cloud PMS | Exploitation hôtelière simplifiée",
+            metaDescription:
+              "Kazehana Cloud PMS est un système moderne de gestion hôtelière pour hôtels et restaurants.",
+            languageLabel: "Langue",
+            navPlatform: "Plateforme",
+            navWorkflow: "Flux",
+            navTeams: "Équipes",
+            navContact: "Contact",
+            heroTitle: "La clarté opérationnelle pour les équipes hôtelières.",
+            heroBody:
+              "Kazehana Cloud PMS relie les réservations, le flux des tables, le housekeeping et la finance dans un seul espace serein. Anticipez les arrivées, protégez les marges et soignez chaque parcours client.",
+            heroPrimary: "Planifier une démo",
+            heroSecondary: "Explorer le flux",
+            todayTitle: "Aperçu du jour",
+            metricOccupancy: "Taux d’occupation",
+            metricArrivals: "Arrivées",
+            metricVip: "Séjours VIP",
+            metricRevenue: "Revenu prévu",
+            todayBody:
+              "Des insights en temps réel sur chambres, restaurants et spa dans une seule vue.",
+            modulesTitle: "Modules qui font tourner l’hôtel.",
+            modulesLead:
+              "Des domaines clés connectés sur une seule plateforme, du front desk à la facturation électronique.",
+            moduleFrontdesk: "Réception",
+            moduleRestaurant: "Restaurant",
+            moduleManagement: "Gestion",
+            moduleAccounting: "Comptabilité",
+            moduleEinvoice: "Facture électronique",
+            teamsTitle: "Pensé pour les équipes qui vont vite.",
+            teamsLead:
+              "De la réception au F&B, chaque service dispose d’un tableau de bord qui met l’essentiel en avant. Sans bruit ni outils fragmentés.",
+            card1Title: "Réservations unifiées",
+            card1Body:
+              "Gérez chambres et tables au même endroit avec disponibilité en temps réel et protections intelligentes contre le surbooking.",
+            card2Title: "Orchestration du housekeeping",
+            card2Body:
+              "Assignez, suivez et validez l’état des chambres avec alertes automatiques et checklists mobiles.",
+            card3Title: "Signaux de revenu",
+            card3Body:
+              "Reliez extras, forfaits et dépenses au restaurant pour révéler la vraie valeur de chaque client.",
+            card4Title: "Conforme aux audits",
+            card4Body:
+              "Exportez pistes d’audit, rapports de nuit et folios en secondes. Confiance lors des inspections.",
+            workflowTitle: "Un flux qui paraît naturel.",
+            workflowLead:
+              "Lancement en semaines, pas en mois. Nous cartographions votre établissement, créons les intégrations et formons l’équipe avec un support concierge.",
+            step1Title: "Session de découverte",
+            step1Body:
+              "Alignement sur votre mix, votre style de service et vos points de friction.",
+            step2Title: "Construction du système",
+            step2Body:
+              "Configuration des types de chambres, plans de restaurant, intégrations et messages clients.",
+            step3Title: "Lancement & réglages",
+            step3Body:
+              "Mise en production avec un responsable succès dédié et optimisation des 30 premiers jours.",
+            trustTitle: "Plébiscité par des opérateurs orientés service.",
+            trustLead:
+              "Les équipes aiment l’interface apaisée et la rapidité des décisions.",
+            quote1:
+              "“Nous avons réduit les check-ins tardifs de 40% le premier mois. Le tableau de bord rend chaque passation de service fluide.”",
+            quote2:
+              "“Notre restaurant et nos chambres communiquent enfin. Nous planifions les menus selon les arrivées et ça fonctionne.”",
+            quote3:
+              "“Former les nouveaux collaborateurs prend des jours, pas des semaines. Les workflows sont intuitifs et guidés.”",
+            ctaTitle: "Prêt à voir Kazehana Cloud en action ?",
+            ctaBody:
+              "Partagez les détails de votre établissement et nous enverrons un deck de démo personnalisé sous 48 heures.",
+            formNameLabel: "Nom complet",
+            formNamePlaceholder: "Camille Martin",
+            formCompanyLabel: "Hôtel / Entreprise",
+            formCompanyPlaceholder: "Kazehana Hotels",
+            formEmailLabel: "Email professionnel",
+            formEmailPlaceholder: "nom@hotel.com",
+            formPhoneLabel: "Téléphone",
+            formPhonePlaceholder: "+33 6 12 34 56 78",
+            formRoomsLabel: "Chambres",
+            formRoomsPlaceholder: "120",
+            formLocationLabel: "Ville / Pays",
+            formLocationPlaceholder: "Paris, France",
+            formMessageLabel: "De quoi avez-vous besoin ?",
+            formMessagePlaceholder: "Parlez-nous de votre établissement, objectifs et calendrier.",
+            formSubmit: "Demander une démo",
+            formNote: "Réponse sous 48 heures.",
+            ctaButton: "Démarrer la conversation",
+            footer: "© 2026 Kazehana Cloud PMS. Conçu pour les équipes hôtelières."
+          },
+          pt: {
+            title: "Kazehana Cloud PMS | Operações de hotelaria simplificadas",
+            metaDescription:
+              "Kazehana Cloud PMS é um sistema moderno de gestão de propriedades para hotéis e restaurantes.",
+            languageLabel: "Idioma",
+            navPlatform: "Plataforma",
+            navWorkflow: "Fluxo",
+            navTeams: "Equipes",
+            navContact: "Contato",
+            heroTitle: "Clareza operacional para equipes hoteleiras.",
+            heroBody:
+              "Kazehana Cloud PMS conecta reservas, fluxo de mesas, governança e finanças em um único espaço tranquilo. Antecipe chegadas, proteja margens e mantenha cada jornada do hóspede intencional.",
+            heroPrimary: "Agendar demonstração",
+            heroSecondary: "Explorar fluxo",
+            todayTitle: "Visão geral de hoje",
+            metricOccupancy: "Ocupação",
+            metricArrivals: "Chegadas",
+            metricVip: "Estadias VIP",
+            metricRevenue: "Receita projetada",
+            todayBody:
+              "Insights em tempo real sobre quartos, restaurantes e spa em uma única visão.",
+            modulesTitle: "Módulos que operam o hotel.",
+            modulesLead:
+              "Áreas essenciais conectadas em uma plataforma, da recepção à nota fiscal eletrônica.",
+            moduleFrontdesk: "Recepção",
+            moduleRestaurant: "Restaurante",
+            moduleManagement: "Gestão",
+            moduleAccounting: "Contabilidade",
+            moduleEinvoice: "NF-e",
+            teamsTitle: "Feito para equipes que se movem rápido.",
+            teamsLead:
+              "Da recepção ao A&B, cada departamento recebe um painel com o que importa. Sem ruído, sem ferramentas fragmentadas.",
+            card1Title: "Reservas unificadas",
+            card1Body:
+              "Gerencie inventário de quartos e mesas em um só lugar com disponibilidade ao vivo e salvaguardas inteligentes contra overbooking.",
+            card2Title: "Orquestração da governança",
+            card2Body:
+              "Atribua, acompanhe e valide a prontidão dos quartos com alertas automáticos e checklists móveis.",
+            card3Title: "Sinais de receita",
+            card3Body:
+              "Conecte extras, pacotes e consumo no restaurante para revelar o verdadeiro valor de cada hóspede.",
+            card4Title: "Pronto para compliance",
+            card4Body:
+              "Exporte trilhas de auditoria, relatórios noturnos e folios em segundos. Fique seguro em inspeções.",
+            workflowTitle: "Fluxo de trabalho sem esforço.",
+            workflowLead:
+              "Implantação em semanas, não meses. Mapeamos sua propriedade, criamos integrações e treinamos sua equipe com suporte concierge.",
+            step1Title: "Sessão de descoberta",
+            step1Body:
+              "Alinhar mix de propriedades, estilo de serviço e dores operacionais.",
+            step2Title: "Construção do sistema",
+            step2Body:
+              "Configurar tipos de quartos, layout do restaurante, integrações e mensagens ao hóspede.",
+            step3Title: "Lançamento e ajuste",
+            step3Body:
+              "Entrar no ar com líder de sucesso dedicado e otimizar os primeiros 30 dias.",
+            trustTitle: "Confiado por operadores focados em serviço.",
+            trustLead:
+              "As equipes adoram a interface calma e a velocidade nas decisões diárias.",
+            quote1:
+              "“Reduzimos os check-ins tardios em 40% no primeiro mês. O painel torna cada troca de turno fluida.”",
+            quote2:
+              "“Nosso restaurante e os quartos finalmente conversam. Planejamos cardápios com base nas chegadas e funciona.”",
+            quote3:
+              "“Treinar novos funcionários leva dias, não semanas. Os fluxos são intuitivos e guiados.”",
+            ctaTitle: "Pronto para ver Kazehana Cloud em ação?",
+            ctaBody:
+              "Compartilhe detalhes da sua propriedade e enviaremos um deck de demonstração em 48 horas.",
+            formNameLabel: "Nome completo",
+            formNamePlaceholder: "Ana Souza",
+            formCompanyLabel: "Hotel / Empresa",
+            formCompanyPlaceholder: "Kazehana Hotels",
+            formEmailLabel: "Email de trabalho",
+            formEmailPlaceholder: "nome@hotel.com",
+            formPhoneLabel: "Telefone",
+            formPhonePlaceholder: "+55 11 91234-5678",
+            formRoomsLabel: "Quartos",
+            formRoomsPlaceholder: "120",
+            formLocationLabel: "Cidade / País",
+            formLocationPlaceholder: "São Paulo, Brasil",
+            formMessageLabel: "Do que você precisa?",
+            formMessagePlaceholder: "Conte sobre seu hotel, objetivos e prazos.",
+            formSubmit: "Solicitar demonstração",
+            formNote: "Respondemos em 48 horas.",
+            ctaButton: "Iniciar a conversa",
+            footer: "© 2026 Kazehana Cloud PMS. Criado para equipes hoteleiras."
+          },
+          it: {
+            title: "Kazehana Cloud PMS | Operazioni alberghiere semplificate",
+            metaDescription:
+              "Kazehana Cloud PMS è un moderno sistema di gestione delle proprietà per hotel e ristoranti.",
+            languageLabel: "Lingua",
+            navPlatform: "Piattaforma",
+            navWorkflow: "Flusso",
+            navTeams: "Team",
+            navContact: "Contatto",
+            heroTitle: "Chiarezza operativa per team alberghieri.",
+            heroBody:
+              "Kazehana Cloud PMS collega prenotazioni, flusso tavoli, housekeeping e finanza in un unico spazio tranquillo. Anticipa gli arrivi, proteggi i margini e cura ogni percorso ospite.",
+            heroPrimary: "Prenota una demo",
+            heroSecondary: "Esplora il flusso",
+            todayTitle: "Panoramica di oggi",
+            metricOccupancy: "Occupazione",
+            metricArrivals: "Arrivi",
+            metricVip: "Soggiorni VIP",
+            metricRevenue: "Ricavi previsti",
+            todayBody:
+              "Insight in tempo reale su camere, ristoranti e spa in un’unica vista.",
+            modulesTitle: "Moduli che fanno funzionare l’hotel.",
+            modulesLead:
+              "Aree chiave connesse in un’unica piattaforma, dal front desk alla fatturazione elettronica.",
+            moduleFrontdesk: "Reception",
+            moduleRestaurant: "Ristorante",
+            moduleManagement: "Gestione",
+            moduleAccounting: "Contabilità",
+            moduleEinvoice: "Fattura elettronica",
+            teamsTitle: "Pensato per team che si muovono veloci.",
+            teamsLead:
+              "Dal front desk al F&B, ogni reparto ha una dashboard che mette in evidenza l’essenziale. Niente rumore, niente strumenti frammentati.",
+            card1Title: "Prenotazioni unificate",
+            card1Body:
+              "Gestisci camere e tavoli in un unico luogo con disponibilità live e protezioni intelligenti contro l’overbooking.",
+            card2Title: "Orchestrazione housekeeping",
+            card2Body:
+              "Assegna, traccia e verifica la prontezza delle camere con avvisi automatici e checklist mobile.",
+            card3Title: "Segnali di ricavo",
+            card3Body:
+              "Collega extra, pacchetti e spesa al ristorante per rivelare il vero valore di ogni ospite.",
+            card4Title: "Pronto per la compliance",
+            card4Body:
+              "Esporta audit trail, report notturni e folio in pochi secondi. Sicurezza durante le ispezioni.",
+            workflowTitle: "Un flusso che sembra naturale.",
+            workflowLead:
+              "Avvio in settimane, non in mesi. Mappiamo la tua struttura, costruiamo integrazioni e formiamo il team con supporto concierge.",
+            step1Title: "Sessione di scoperta",
+            step1Body:
+              "Allineamento su mix della proprietà, stile di servizio e criticità operative.",
+            step2Title: "Costruzione del sistema",
+            step2Body:
+              "Configuriamo tipologie di camere, layout del ristorante, integrazioni e messaggistica ospite.",
+            step3Title: "Lancio e ottimizzazione",
+            step3Body:
+              "Go-live con un success lead dedicato e ottimizzazione dei primi 30 giorni.",
+            trustTitle: "Scelto da operatori orientati al servizio.",
+            trustLead:
+              "I team amano l’interfaccia calma e la velocità nelle decisioni quotidiane.",
+            quote1:
+              "“Abbiamo ridotto i check-in tardivi del 40% nel primo mese. La dashboard rende ogni cambio turno fluido.”",
+            quote2:
+              "“Il nostro ristorante e le camere finalmente dialogano. Pianifichiamo i menu in base agli arrivi e funziona.”",
+            quote3:
+              "“Formare nuovo personale richiede giorni, non settimane. I flussi sono intuitivi e guidati.”",
+            ctaTitle: "Pronto a vedere Kazehana Cloud in azione?",
+            ctaBody:
+              "Condividi i dettagli della tua struttura e invieremo un deck demo personalizzato entro 48 ore.",
+            formNameLabel: "Nome completo",
+            formNamePlaceholder: "Giulia Rossi",
+            formCompanyLabel: "Hotel / Azienda",
+            formCompanyPlaceholder: "Kazehana Hotels",
+            formEmailLabel: "Email di lavoro",
+            formEmailPlaceholder: "nome@hotel.com",
+            formPhoneLabel: "Telefono",
+            formPhonePlaceholder: "+39 320 123 4567",
+            formRoomsLabel: "Camere",
+            formRoomsPlaceholder: "120",
+            formLocationLabel: "Città / Paese",
+            formLocationPlaceholder: "Milano, Italia",
+            formMessageLabel: "Di cosa hai bisogno?",
+            formMessagePlaceholder: "Raccontaci della tua struttura, obiettivi e tempistiche.",
+            formSubmit: "Richiedi una demo",
+            formNote: "Rispondiamo entro 48 ore.",
+            ctaButton: "Inizia la conversazione",
+            footer: "© 2026 Kazehana Cloud PMS. Creato per team alberghieri."
+          },
+          ja: {
+            title: "Kazehana Cloud PMS | ホスピタリティ運営をシンプルに",
+            metaDescription:
+              "Kazehana Cloud PMS はホテルとレストラン向けの最新プロパティ管理システムです。",
+            languageLabel: "言語",
+            navPlatform: "プラットフォーム",
+            navWorkflow: "ワークフロー",
+            navTeams: "チーム",
+            navContact: "お問い合わせ",
+            heroTitle: "ホテルチームのための、明快なオペレーション。",
+            heroBody:
+              "Kazehana Cloud PMS は予約、テーブル回転、ハウスキーピング、財務を一つの落ち着いたワークスペースに統合します。到着を先読みし、利益を守り、すべてのゲスト体験を丁寧に。",
+            heroPrimary: "デモを予約",
+            heroSecondary: "ワークフローを見る",
+            todayTitle: "本日のサマリー",
+            metricOccupancy: "稼働率",
+            metricArrivals: "到着数",
+            metricVip: "VIP滞在",
+            metricRevenue: "予測売上",
+            todayBody:
+              "客室、レストラン、スパのリアルタイム指標を一画面で把握。",
+            modulesTitle: "ホテル運営を支える主要モジュール。",
+            modulesLead:
+              "フロントから電子請求まで、重要領域を一つのプラットフォームで接続。",
+            moduleFrontdesk: "フロント",
+            moduleRestaurant: "レストラン",
+            moduleManagement: "マネジメント",
+            moduleAccounting: "会計",
+            moduleEinvoice: "電子請求",
+            teamsTitle: "スピード重視のチームのために。",
+            teamsLead:
+              "フロントからF&Bまで、必要な情報だけを提示するダッシュボード。ノイズも分断もありません。",
+            card1Title: "予約の一元管理",
+            card1Body:
+              "客室とテーブル在庫を一か所で管理。リアルタイムの空室と過剰予約の防止機能。",
+            card2Title: "ハウスキーピングの指揮",
+            card2Body:
+              "自動通知とモバイル対応チェックリストで、清掃状況を割り当て・追跡・確認。",
+            card3Title: "売上シグナル",
+            card3Body:
+              "追加販売やパッケージ、レストラン利用を紐づけ、ゲスト価値を可視化。",
+            card4Title: "監査対応",
+            card4Body:
+              "監査ログ、ナイトレポート、フォリオを数秒で出力。検査にも安心。",
+            workflowTitle: "無理のない導入フロー。",
+            workflowLead:
+              "数か月ではなく数週間で立ち上げ。施設のマッピング、連携構築、チームトレーニングまで伴走。",
+            step1Title: "ディスカバリー",
+            step1Body:
+              "施設構成、サービススタイル、課題を整理。",
+            step2Title: "システム構築",
+            step2Body:
+              "客室タイプ、レイアウト、連携、ゲスト連絡を設定。",
+            step3Title: "ローンチと調整",
+            step3Body:
+              "専任担当と共に稼働開始。最初の30日を最適化。",
+            trustTitle: "サービス重視の運営者から信頼されています。",
+            trustLead:
+              "落ち着いたUIと迅速な意思決定が評価されています。",
+            quote1:
+              "“初月でレイトチェックインが40%減少。ダッシュボードで引き継ぎがスムーズになりました。”",
+            quote2:
+              "“レストランと客室がようやく連携。到着に合わせてメニューを計画でき、うまく回っています。”",
+            quote3:
+              "“新人研修が数日で完了。ワークフローが直感的でガイドも明確です。”",
+            ctaTitle: "Kazehana Cloud を体験しませんか？",
+            ctaBody:
+              "施設情報を共有いただければ、48時間以内に最適なデモ資料をお送りします。",
+            formNameLabel: "氏名",
+            formNamePlaceholder: "山田 太郎",
+            formCompanyLabel: "ホテル / 会社名",
+            formCompanyPlaceholder: "Kazehana Hotels",
+            formEmailLabel: "業務用メール",
+            formEmailPlaceholder: "name@hotel.com",
+            formPhoneLabel: "電話番号",
+            formPhonePlaceholder: "+81 90 1234 5678",
+            formRoomsLabel: "客室数",
+            formRoomsPlaceholder: "120",
+            formLocationLabel: "都市 / 国",
+            formLocationPlaceholder: "東京, 日本",
+            formMessageLabel: "ご相談内容",
+            formMessagePlaceholder: "施設の情報、目標、導入時期を教えてください。",
+            formSubmit: "デモを依頼",
+            formNote: "48時間以内にご連絡します。",
+            ctaButton: "お問い合わせを開始",
+            footer: "© 2026 Kazehana Cloud PMS. ホテル運営チームのために。"
+          }
+        };
+
+        const supported = Object.keys(translations);
+        const defaultLang = "en";
+
+        function normalize(lang) {
+          return (lang || "").toLowerCase().split("-")[0];
+        }
+
+        function getPreferredLanguage() {
+          try {
+            const stored = localStorage.getItem("siteLang");
+            if (stored && supported.includes(stored)) {
+              return stored;
+            }
+          } catch (err) {
+            // Ignore storage errors
+          }
+
+          const browserLangs = navigator.languages || [navigator.language || ""];
+          for (const lang of browserLangs) {
+            const normalized = normalize(lang);
+            if (supported.includes(normalized)) {
+              return normalized;
+            }
+          }
+
+          return defaultLang;
+        }
+
+        function getCssNumber(varName, fallback) {
+          const raw = getComputedStyle(document.documentElement)
+            .getPropertyValue(varName)
+            .trim();
+          const value = parseFloat(raw);
+          return Number.isFinite(value) ? value : fallback;
+        }
+
+        function updateHeaderHeight() {
+          const header = document.querySelector("header");
+          const toggle = document.getElementById("headerToggle");
+          if (!header) return;
+          let height = Math.ceil(header.getBoundingClientRect().height);
+
+          if (header.classList.contains("is-collapsed") && toggle) {
+            const toggleSize = toggle.getBoundingClientRect().height;
+            const gap = getCssNumber("--toggle-gap", 10);
+            height = Math.ceil(toggleSize + gap);
+          }
+
+          document.documentElement.style.setProperty("--header-height", `${height}px`);
+        }
+
+        function applyTranslations(lang) {
+          const chosen = supported.includes(lang) ? lang : defaultLang;
+          const t = translations[chosen];
+
+          document.documentElement.lang = chosen;
+          document.title = t.title;
+
+          const metaDescription = document.querySelector('meta[name="description"]');
+          if (metaDescription) {
+            metaDescription.setAttribute("content", t.metaDescription);
+          }
+
+          document.querySelectorAll("[data-i18n]").forEach((el) => {
+            const key = el.getAttribute("data-i18n");
+            if (t[key]) {
+              el.textContent = t[key];
+            }
+          });
+
+          document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+            const key = el.getAttribute("data-i18n-placeholder");
+            if (t[key]) {
+              el.setAttribute("placeholder", t[key]);
+            }
+          });
+
+          updateHeaderHeight();
+        }
+
+        const select = document.getElementById("langSelect");
+        const toggle = document.getElementById("headerToggle");
+        const header = document.querySelector("header");
+        const initialLang = getPreferredLanguage();
+
+        if (select) {
+          select.value = initialLang;
+          select.addEventListener("change", (event) => {
+            const nextLang = event.target.value;
+            applyTranslations(nextLang);
+            try {
+              localStorage.setItem("siteLang", nextLang);
+            } catch (err) {
+              // Ignore storage errors
+            }
+          });
+        }
+
+        if (header && toggle) {
+          let isCollapsed = false;
+          try {
+            isCollapsed = localStorage.getItem("headerCollapsed") === "true";
+          } catch (err) {
+            // Ignore storage errors
+          }
+
+          if (isCollapsed) {
+            header.classList.add("is-collapsed");
+          }
+          toggle.setAttribute("aria-expanded", String(!isCollapsed));
+
+          toggle.addEventListener("click", () => {
+            header.classList.toggle("is-collapsed");
+            const collapsedNow = header.classList.contains("is-collapsed");
+            toggle.setAttribute("aria-expanded", String(!collapsedNow));
+            try {
+              localStorage.setItem("headerCollapsed", String(collapsedNow));
+            } catch (err) {
+              // Ignore storage errors
+            }
+            updateHeaderHeight();
+          });
+        }
+
+        applyTranslations(initialLang);
+
+        window.addEventListener("resize", updateHeaderHeight);
+        window.addEventListener("load", updateHeaderHeight);
+      })();
+    </script>
+  </body>
+</html>
