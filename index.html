@@ -424,6 +424,55 @@
         margin-top: 0;
       }
 
+      .faq-list {
+        display: grid;
+        gap: 14px;
+        margin-top: 28px;
+      }
+
+      .faq-item {
+        background: var(--card);
+        border-radius: var(--radius-md);
+        border: 1px solid rgba(16, 42, 46, 0.08);
+        box-shadow: 0 12px 24px rgba(16, 42, 46, 0.08);
+        overflow: hidden;
+      }
+
+      .faq-item summary {
+        list-style: none;
+        cursor: pointer;
+        padding: 16px 20px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .faq-item summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .faq-item summary::after {
+        content: "+";
+        font-size: 1.2rem;
+        line-height: 1;
+        color: var(--accent);
+        transition: transform 0.2s ease;
+      }
+
+      .faq-item[open] summary::after {
+        content: "–";
+        transform: translateY(-1px);
+      }
+
+      .faq-item p {
+        margin: 0;
+        padding: 0 20px 16px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
       .timeline {
         display: grid;
         gap: 18px;
@@ -663,6 +712,7 @@
             <a href="#platform" data-i18n="navPlatform">Platform</a>
             <a href="#workflow" data-i18n="navWorkflow">Workflow</a>
             <a href="#teams" data-i18n="navTeams">Teams</a>
+            <a href="#faq" data-i18n="navFaq">FAQ</a>
             <a href="#contact" data-i18n="navContact">Contact</a>
           </nav>
           <div class="lang-select">
@@ -869,6 +919,47 @@
         </div>
       </section>
 
+      <!-- Sección FAQ -->
+      <section class="section" id="faq">
+        <h2 data-i18n="faqTitle">Frequently asked questions</h2>
+        <p class="lead" data-i18n="faqLead">
+          Everything you need to know about onboarding, data, and support.
+        </p>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary data-i18n="faq1Q">How fast can we go live?</summary>
+            <p data-i18n="faq1A">
+              Most hotels launch in 3–6 weeks, depending on integrations and data migration.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq2Q">Do you include training?</summary>
+            <p data-i18n="faq2A">
+              Yes. We deliver role-based training and stay with your team through the first month.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq3Q">Can we import reservations and folios?</summary>
+            <p data-i18n="faq3A">
+              We import historical and future reservations, guest profiles, and folios on request.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq4Q">Is support 24/7?</summary>
+            <p data-i18n="faq4A">
+              We offer extended support hours, with 24/7 options for multi‑property groups.
+            </p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq5Q">Do you offer memberships or plans?</summary>
+            <p data-i18n="faq5A">
+              Yes. We have memberships by package, and we help you choose the right tier based on your
+              hotel size and needs.
+            </p>
+          </details>
+        </div>
+      </section>
+
       <!-- Sección contacto / llamada a la acción -->
       <section class="section" id="contact">
         <div class="cta">
@@ -881,7 +972,7 @@
           </div>
           <form
             class="cta-form"
-            action="mailto:hello@kazehana.io"
+            action="vargas.almengor@gmail.com"
             method="post"
             enctype="text/plain"
           >
@@ -893,8 +984,7 @@
                   name="name"
                   autocomplete="name"
                   required
-                  data-i18n-placeholder="formNamePlaceholder"
-                  placeholder="Jane Doe"
+                  
                 />
               </label>
               <label class="field">
@@ -904,8 +994,7 @@
                   name="company"
                   autocomplete="organization"
                   required
-                  data-i18n-placeholder="formCompanyPlaceholder"
-                  placeholder="Kazehana Hotels"
+                  
                 />
               </label>
               <label class="field">
@@ -914,9 +1003,8 @@
                   type="email"
                   name="email"
                   autocomplete="email"
-                  required
-                  data-i18n-placeholder="formEmailPlaceholder"
-                  placeholder="name@hotel.com"
+                  required                  
+                  
                 />
               </label>
               <label class="field">
@@ -925,8 +1013,7 @@
                   type="tel"
                   name="phone"
                   autocomplete="tel"
-                  data-i18n-placeholder="formPhonePlaceholder"
-                  placeholder="+1 555 123 4567"
+                  required
                 />
               </label>
               <label class="field">
@@ -935,8 +1022,7 @@
                   type="number"
                   name="rooms"
                   min="1"
-                  data-i18n-placeholder="formRoomsPlaceholder"
-                  placeholder="120"
+                  required
                 />
               </label>
               <label class="field">
@@ -945,8 +1031,7 @@
                   type="text"
                   name="location"
                   autocomplete="address-level2"
-                  data-i18n-placeholder="formLocationPlaceholder"
-                  placeholder="San José, Costa Rica"
+                  required
                 />
               </label>
             </div>
@@ -986,6 +1071,7 @@
             navPlatform: "Platform",
             navWorkflow: "Workflow",
             navTeams: "Teams",
+            navFaq: "FAQ",
             navContact: "Contact",
             heroTitle: "Operations clarity for hotel teams.",
             heroBody:
@@ -1037,6 +1123,23 @@
             trustTitle: "Trusted by service-first operators.",
             trustLead:
               "Teams love the calm interface and the speed it brings to daily decisions.",
+            faqTitle: "Frequently asked questions",
+            faqLead: "Everything you need to know about onboarding, data, and support.",
+            faq1Q: "How fast can we go live?",
+            faq1A:
+              "Most hotels launch in 3–6 weeks, depending on integrations and data migration.",
+            faq2Q: "Do you include training?",
+            faq2A:
+              "Yes. We deliver role-based training and stay with your team through the first month.",
+            faq3Q: "Can we import reservations and folios?",
+            faq3A:
+              "We import historical and future reservations, guest profiles, and folios on request.",
+            faq4Q: "Is support 24/7?",
+            faq4A:
+              "We offer extended support hours, with 24/7 options for multi‑property groups.",
+            faq5Q: "Do you offer memberships or plans?",
+            faq5A:
+              "Yes. We have memberships by package, and we help you choose the right tier based on your hotel size and needs.",
             quote1:
               "“We reduced late check-ins by 40% in the first month. The dashboard makes every shift change seamless.”",
             quote2:
@@ -1073,6 +1176,7 @@
             navPlatform: "Plataforma",
             navWorkflow: "Flujo",
             navTeams: "Equipos",
+            navFaq: "FAQ",
             navContact: "Contacto",
             heroTitle: "Claridad operativa para equipos hoteleros.",
             heroBody:
@@ -1124,6 +1228,23 @@
             trustTitle: "Confiado por operadores centrados en el servicio.",
             trustLead:
               "Los equipos aman la interfaz calmada y la velocidad que aporta a las decisiones diarias.",
+            faqTitle: "Preguntas frecuentes",
+            faqLead: "Todo lo que necesitas saber sobre implementación, datos y soporte.",
+            faq1Q: "¿Qué tan rápido podemos salir en vivo?",
+            faq1A:
+              "La mayoría de los hoteles lanzan en 3 a 6 semanas, según integraciones y migración de datos.",
+            faq2Q: "¿Incluyen capacitación?",
+            faq2A:
+              "Sí. Ofrecemos capacitación por roles y acompañamiento durante el primer mes.",
+            faq3Q: "¿Podemos importar reservas y folios?",
+            faq3A:
+              "Importamos reservas históricas y futuras, perfiles de huéspedes y folios bajo solicitud.",
+            faq4Q: "¿El soporte es 24/7?",
+            faq4A:
+              "Ofrecemos horarios extendidos, con opción 24/7 para grupos multipropiedad.",
+            faq5Q: "¿Ofrecen membresías o planes?",
+            faq5A:
+              "Sí. Tenemos membresías por paquete y te ayudamos a elegir el nivel adecuado según el tamaño y las necesidades de tu hotel.",
             quote1:
               "“Reducimos los check-ins tardíos en 40% el primer mes. El panel hace que cada cambio de turno sea fluido.”",
             quote2:
@@ -1160,6 +1281,7 @@
             navPlatform: "Plateforme",
             navWorkflow: "Flux",
             navTeams: "Équipes",
+            navFaq: "FAQ",
             navContact: "Contact",
             heroTitle: "La clarté opérationnelle pour les équipes hôtelières.",
             heroBody:
@@ -1211,6 +1333,23 @@
             trustTitle: "Plébiscité par des opérateurs orientés service.",
             trustLead:
               "Les équipes aiment l’interface apaisée et la rapidité des décisions.",
+            faqTitle: "Questions fréquentes",
+            faqLead: "Tout ce qu’il faut savoir sur l’onboarding, les données et le support.",
+            faq1Q: "En combien de temps pouvons‑nous être opérationnels ?",
+            faq1A:
+              "La plupart des hôtels démarrent en 3 à 6 semaines selon les intégrations et la migration des données.",
+            faq2Q: "Proposez‑vous la formation ?",
+            faq2A:
+              "Oui. Nous proposons une formation par rôle et un accompagnement durant le premier mois.",
+            faq3Q: "Pouvez‑vous importer réservations et folios ?",
+            faq3A:
+              "Nous importons sur demande les réservations passées et futures, profils clients et folios.",
+            faq4Q: "Le support est‑il 24/7 ?",
+            faq4A:
+              "Nous proposons des horaires étendus, avec option 24/7 pour les groupes multi‑établissements.",
+            faq5Q: "Proposez‑vous des abonnements ou des offres ?",
+            faq5A:
+              "Oui. Nous avons des abonnements par package et nous aidons à choisir le niveau adapté à la taille et aux besoins de votre hôtel.",
             quote1:
               "“Nous avons réduit les check-ins tardifs de 40% le premier mois. Le tableau de bord rend chaque passation de service fluide.”",
             quote2:
@@ -1247,6 +1386,7 @@
             navPlatform: "Plataforma",
             navWorkflow: "Fluxo",
             navTeams: "Equipes",
+            navFaq: "FAQ",
             navContact: "Contato",
             heroTitle: "Clareza operacional para equipes hoteleiras.",
             heroBody:
@@ -1298,6 +1438,23 @@
             trustTitle: "Confiado por operadores focados em serviço.",
             trustLead:
               "As equipes adoram a interface calma e a velocidade nas decisões diárias.",
+            faqTitle: "Perguntas frequentes",
+            faqLead: "Tudo o que você precisa saber sobre implantação, dados e suporte.",
+            faq1Q: "Em quanto tempo podemos entrar no ar?",
+            faq1A:
+              "A maioria dos hotéis entra no ar em 3 a 6 semanas, dependendo de integrações e migração de dados.",
+            faq2Q: "Vocês oferecem treinamento?",
+            faq2A:
+              "Sim. Entregamos treinamento por função e acompanhamos a equipe no primeiro mês.",
+            faq3Q: "Podemos importar reservas e folios?",
+            faq3A:
+              "Importamos reservas históricas e futuras, perfis de hóspedes e folios sob demanda.",
+            faq4Q: "O suporte é 24/7?",
+            faq4A:
+              "Temos horário estendido e opção 24/7 para grupos com várias propriedades.",
+            faq5Q: "Vocês oferecem assinaturas ou planos?",
+            faq5A:
+              "Sim. Temos assinaturas por pacote e ajudamos a escolher o nível ideal conforme o tamanho e as necessidades do hotel.",
             quote1:
               "“Reduzimos os check-ins tardios em 40% no primeiro mês. O painel torna cada troca de turno fluida.”",
             quote2:
@@ -1334,6 +1491,7 @@
             navPlatform: "Piattaforma",
             navWorkflow: "Flusso",
             navTeams: "Team",
+            navFaq: "FAQ",
             navContact: "Contatto",
             heroTitle: "Chiarezza operativa per team alberghieri.",
             heroBody:
@@ -1385,6 +1543,23 @@
             trustTitle: "Scelto da operatori orientati al servizio.",
             trustLead:
               "I team amano l’interfaccia calma e la velocità nelle decisioni quotidiane.",
+            faqTitle: "Domande frequenti",
+            faqLead: "Tutto ciò che serve sapere su onboarding, dati e supporto.",
+            faq1Q: "Quanto tempo serve per andare live?",
+            faq1A:
+              "La maggior parte degli hotel va live in 3–6 settimane, in base a integrazioni e migrazione dati.",
+            faq2Q: "Fornite formazione?",
+            faq2A:
+              "Sì. Offriamo formazione per ruolo e supporto durante il primo mese.",
+            faq3Q: "Possiamo importare prenotazioni e folio?",
+            faq3A:
+              "Importiamo prenotazioni storiche e future, profili ospite e folio su richiesta.",
+            faq4Q: "Il supporto è 24/7?",
+            faq4A:
+              "Offriamo orari estesi, con opzione 24/7 per gruppi multi‑proprietà.",
+            faq5Q: "Offrite abbonamenti o piani?",
+            faq5A:
+              "Sì. Abbiamo abbonamenti per pacchetto e aiutiamo a scegliere il livello giusto in base alla dimensione e alle esigenze dell’hotel.",
             quote1:
               "“Abbiamo ridotto i check-in tardivi del 40% nel primo mese. La dashboard rende ogni cambio turno fluido.”",
             quote2:
@@ -1421,6 +1596,7 @@
             navPlatform: "プラットフォーム",
             navWorkflow: "ワークフロー",
             navTeams: "チーム",
+            navFaq: "FAQ",
             navContact: "お問い合わせ",
             heroTitle: "ホテルチームのための、明快なオペレーション。",
             heroBody:
@@ -1472,6 +1648,23 @@
             trustTitle: "サービス重視の運営者から信頼されています。",
             trustLead:
               "落ち着いたUIと迅速な意思決定が評価されています。",
+            faqTitle: "よくある質問",
+            faqLead: "導入、データ、サポートについての要点をまとめました。",
+            faq1Q: "どのくらいで稼働できますか？",
+            faq1A:
+              "連携やデータ移行の内容により、3〜6週間で稼働するケースが多いです。",
+            faq2Q: "トレーニングは含まれますか？",
+            faq2A:
+              "はい。役割別のトレーニングを提供し、最初の1か月は伴走します。",
+            faq3Q: "予約やフォリオの取り込みは可能ですか？",
+            faq3A:
+              "過去・将来の予約、ゲストプロフィール、フォリオの取り込みに対応します。",
+            faq4Q: "サポートは24時間ですか？",
+            faq4A:
+              "拡張サポートを提供し、複数施設のグループ向けに24/7も用意できます。",
+            faq5Q: "メンバーシップやプランはありますか？",
+            faq5A:
+              "はい。パッケージ別のメンバーシップがあり、ホテルの規模や要件に合わせて最適なプランをご提案します。",
             quote1:
               "“初月でレイトチェックインが40%減少。ダッシュボードで引き継ぎがスムーズになりました。”",
             quote2:
