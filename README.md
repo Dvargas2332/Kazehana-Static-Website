@@ -1,7 +1,10 @@
 ﻿# Kazehana Cloud PMS – Web Estática
 
+
 **Aviso:** Código propietario. Solo revisión/evaluación. Uso comercial requiere licencia por escrito.
-**Notice:** Proprietary code. Review/evaluation only. Commercial use requires a written license.
+
+[![CI](https://github.com/Dvargas2332/Kazehana-Static-Website/actions/workflows/ci.yml/badge.svg)](https://github.com/Dvargas2332/Kazehana-Static-Website/actions/workflows/ci.yml)
+
 
 Landing page estática con selector de idioma, sección de módulos con íconos y formulario de contacto (mailto).
 Static landing page with language selector, module icons, and contact form (mailto).
