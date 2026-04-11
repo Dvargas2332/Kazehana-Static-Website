@@ -63,6 +63,45 @@
         padding-top: var(--header-height);
       }
 
+      .notice-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(16, 42, 46, 0.55);
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
+        display: none;
+        place-items: center;
+        z-index: 50;
+        padding: 24px;
+      }
+
+      .notice-card {
+        max-width: 620px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: var(--radius-lg);
+        padding: 28px 28px 22px;
+        box-shadow: 0 24px 60px rgba(16, 42, 46, 0.28);
+        text-align: center;
+      }
+
+      .notice-card h3 {
+        margin: 0 0 10px;
+        font-family: "Fraunces", serif;
+        font-size: clamp(1.6rem, 2.2vw + 1rem, 2.4rem);
+      }
+
+      .notice-card p {
+        margin: 0 0 18px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .notice-card .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
       .halo {
         position: absolute;
         width: 460px;
@@ -253,6 +292,15 @@
         color: var(--ink);
       }
 
+      .header-login {
+        padding: 10px 22px;
+        font-size: 0.9rem;
+        background: var(--accent);
+        color: #102a2e;
+        border-color: transparent;
+        box-shadow: 0 12px 24px rgba(228, 87, 46, 0.28);
+      }
+
       .hero {
         position: relative;
         z-index: 1;
@@ -393,8 +441,8 @@
       }
 
       .module-card img {
-        width: clamp(150px, 60%, 150px);
-        height: clamp(150px, 60%, 150px);
+        width: clamp(80px, 60%, 150px);
+        height: clamp(80px, 60%, 150px);
         max-width: 100%;
         max-height: 100%;
         display: block;
@@ -498,6 +546,184 @@
         border-radius: 12px;
         background: var(--accent-soft);
         font-weight: 700;
+      }
+
+      .vision-grid {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        margin-top: 28px;
+      }
+
+      .diagram-card {
+        background: var(--card);
+        border-radius: var(--radius-md);
+        padding: 22px;
+        box-shadow: var(--shadow);
+        display: grid;
+        gap: 12px;
+      }
+
+      .diagram-card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .diagram-flow {
+        display: grid;
+        gap: 10px;
+        margin-top: 8px;
+      }
+
+      .diagram-node {
+        background: #f7fbfb;
+        border: 1px solid rgba(16, 42, 46, 0.08);
+        border-radius: 12px;
+        padding: 10px 12px;
+        font-weight: 600;
+      }
+
+      .diagram-arrow {
+        text-align: center;
+        color: var(--muted);
+        font-size: 1.1rem;
+      }
+
+      .carousel {
+        margin-top: 28px;
+        background: var(--card);
+        border-radius: var(--radius-lg);
+        padding: 24px;
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .carousel-track {
+        display: flex;
+        transition: transform 0.4s ease;
+        overflow: hidden;
+      }
+
+      .carousel-slide {
+        min-width: 100%;
+        display: grid;
+        gap: 18px;
+        grid-template-columns: minmax(220px, 1fr) minmax(200px, 1fr);
+        align-items: center;
+      }
+
+      .shot {
+        height: 240px;
+        border-radius: var(--radius-md);
+        padding: 18px;
+        display: flex;
+        align-items: flex-end;
+        color: #fff;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+      }
+
+      .shot-1 {
+        background: linear-gradient(135deg, #1a6b57, #28b18d);
+      }
+
+      .shot-2 {
+        background: linear-gradient(135deg, #12445e, #37a6c9);
+      }
+
+      .shot-3 {
+        background: linear-gradient(135deg, #7a2b1c, #f08c5a);
+      }
+
+      .carousel-controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-top: 16px;
+      }
+
+      .carousel-buttons {
+        display: flex;
+        gap: 10px;
+      }
+
+      .carousel-btn {
+        border-radius: 999px;
+        border: 1px solid rgba(16, 42, 46, 0.2);
+        background: #fff;
+        padding: 8px 14px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      .carousel-dots {
+        display: flex;
+        gap: 8px;
+      }
+
+      .carousel-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        border: none;
+        background: rgba(16, 42, 46, 0.2);
+        cursor: pointer;
+      }
+
+      .carousel-dot.is-active {
+        background: var(--accent);
+      }
+
+      .hotels-grid {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        margin-top: 28px;
+      }
+
+      .hotel-card {
+        background: var(--card);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        display: grid;
+      }
+
+      .hotel-photo {
+        height: 160px;
+      }
+
+      .photo-1 {
+        background: linear-gradient(135deg, #d8c7a1, #a3b5a6);
+      }
+
+      .photo-2 {
+        background: linear-gradient(135deg, #f2b0a6, #f47f68);
+      }
+
+      .photo-3 {
+        background: linear-gradient(135deg, #96c6e0, #4d8fb8);
+      }
+
+      .photo-4 {
+        background: linear-gradient(135deg, #ccb9ea, #8a6ec1);
+      }
+
+      .hotel-body {
+        padding: 18px;
+        display: grid;
+        gap: 8px;
+      }
+
+      .hotel-body p {
+        margin: 0;
+      }
+
+      .hotel-meta {
+        color: var(--muted);
+        font-size: 0.95rem;
       }
 
       .testimonial {
@@ -680,6 +906,14 @@
           grid-template-columns: 1fr;
         }
 
+        .carousel-slide {
+          grid-template-columns: 1fr;
+        }
+
+        .shot {
+          height: 200px;
+        }
+
         .form-grid {
           grid-template-columns: 1fr;
         }
@@ -697,6 +931,24 @@
     </style>
   </head>
   <body>
+    <div
+      class="notice-overlay"
+      id="noticeOverlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="noticeHeading"
+      aria-hidden="true"
+    >
+      <div class="notice-card">
+        <h3 id="noticeHeading" data-i18n="noticeTitle">Muy pronto estará disponible el mejor sistema de gestión hotelera.</h3>
+        <p data-i18n="noticeBody">
+          Estamos afinando los últimos detalles para abrir acceso completo.
+        </p>
+        <button class="btn secondary" type="button" id="noticeClose" data-i18n="noticeButton">
+          Entendido
+        </button>
+      </div>
+    </div>
     <div class="page">
       <div class="halo one"></div>
       <div class="halo two"></div>
@@ -715,6 +967,13 @@
             <a href="#faq" data-i18n="navFaq">FAQ</a>
             <a href="#contact" data-i18n="navContact">Contact</a>
           </nav>
+          <a
+            class="btn secondary header-login"
+            href="https://client.kazehanacloud.com"
+            data-i18n="navLogin"
+          >
+            Log in
+          </a>
           <div class="lang-select">
             <label for="langSelect" data-i18n="languageLabel">Language</label>
             <select id="langSelect" aria-label="Language selector">
@@ -886,6 +1145,170 @@
         </div>
       </section>
 
+      <!-- Sección visión del sistema -->
+      <section class="section" id="vision">
+        <h2 data-i18n="visionTitle">System vision, mapped.</h2>
+        <p class="lead" data-i18n="visionLead">
+          A shared source of truth connects guests, operations, and revenue — in one flow.
+        </p>
+
+        <div class="vision-grid">
+          <div class="diagram-card">
+            <h3 data-i18n="diagram1Title">Guest journey</h3>
+            <p data-i18n="diagram1Body">
+              From booking to post‑stay, every touchpoint stays connected.
+            </p>
+            <div class="diagram-flow">
+              <div class="diagram-node" data-i18n="diagram1Node1">Reservation</div>
+              <div class="diagram-arrow">↓</div>
+              <div class="diagram-node" data-i18n="diagram1Node2">Stay experience</div>
+              <div class="diagram-arrow">↓</div>
+              <div class="diagram-node" data-i18n="diagram1Node3">Return &amp; loyalty</div>
+            </div>
+          </div>
+
+          <div class="diagram-card">
+            <h3 data-i18n="diagram2Title">Operations spine</h3>
+            <p data-i18n="diagram2Body">
+              Teams act on the same real‑time picture across departments.
+            </p>
+            <div class="diagram-flow">
+              <div class="diagram-node" data-i18n="diagram2Node1">Front desk</div>
+              <div class="diagram-arrow">↓</div>
+              <div class="diagram-node" data-i18n="diagram2Node2">Housekeeping</div>
+              <div class="diagram-arrow">↓</div>
+              <div class="diagram-node" data-i18n="diagram2Node3">F&amp;B and spa</div>
+            </div>
+          </div>
+
+          <div class="diagram-card">
+            <h3 data-i18n="diagram3Title">Revenue intelligence</h3>
+            <p data-i18n="diagram3Body">
+              Signals unify pricing, packages, and profit by guest.
+            </p>
+            <div class="diagram-flow">
+              <div class="diagram-node" data-i18n="diagram3Node1">Rate strategy</div>
+              <div class="diagram-arrow">↓</div>
+              <div class="diagram-node" data-i18n="diagram3Node2">Add‑ons</div>
+              <div class="diagram-arrow">↓</div>
+              <div class="diagram-node" data-i18n="diagram3Node3">Forecasts</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección screenshots / carrusel -->
+      <section class="section" id="screens">
+        <h2 data-i18n="screenshotsTitle">Product snapshots</h2>
+        <p class="lead" data-i18n="screenshotsLead">
+          Early UI examples to visualize the daily workflow.
+        </p>
+
+        <div class="carousel" data-carousel>
+          <div class="carousel-track">
+            <article class="carousel-slide" data-slide>
+              <div class="shot shot-1">
+                <span data-i18n="shot1Label">Arrivals</span>
+              </div>
+              <div>
+                <h3 data-i18n="shot1Title">Arrival command center</h3>
+                <p data-i18n="shot1Body">
+                  Track check-ins, room status, and VIP notes in one view.
+                </p>
+              </div>
+            </article>
+            <article class="carousel-slide" data-slide>
+              <div class="shot shot-2">
+                <span data-i18n="shot2Label">Housekeeping</span>
+              </div>
+              <div>
+                <h3 data-i18n="shot2Title">Housekeeping live map</h3>
+                <p data-i18n="shot2Body">
+                  Prioritize rooms with smart queues and mobile checklists.
+                </p>
+              </div>
+            </article>
+            <article class="carousel-slide" data-slide>
+              <div class="shot shot-3">
+                <span data-i18n="shot3Label">Revenue</span>
+              </div>
+              <div>
+                <h3 data-i18n="shot3Title">Revenue pulse</h3>
+                <p data-i18n="shot3Body">
+                  Daily pace, upsell impact, and forecast changes.
+                </p>
+              </div>
+            </article>
+          </div>
+          <div class="carousel-controls">
+            <div class="carousel-buttons">
+              <button class="carousel-btn" type="button" data-prev aria-label="Previous slide">
+                ‹
+              </button>
+              <button class="carousel-btn" type="button" data-next aria-label="Next slide">
+                ›
+              </button>
+            </div>
+            <div class="carousel-dots">
+              <button class="carousel-dot" type="button" data-dot aria-label="Go to slide 1"></button>
+              <button class="carousel-dot" type="button" data-dot aria-label="Go to slide 2"></button>
+              <button class="carousel-dot" type="button" data-dot aria-label="Go to slide 3"></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección hoteles -->
+      <section class="section" id="hotels">
+        <h2 data-i18n="hotelsTitle">Hotel profiles</h2>
+        <p class="lead" data-i18n="hotelsLead">
+          Examples of how properties showcase themselves inside the platform.
+        </p>
+
+        <div class="hotels-grid">
+          <div class="hotel-card">
+            <div class="hotel-photo photo-1"></div>
+            <div class="hotel-body">
+              <h3 data-i18n="hotel1Name">Azure Bay Resort</h3>
+              <p class="hotel-meta" data-i18n="hotel1Meta">Santa Marta, Colombia · 86 rooms</p>
+              <p data-i18n="hotel1Body">
+                Boutique beachfront property focused on wellness and local gastronomy.
+              </p>
+            </div>
+          </div>
+          <div class="hotel-card">
+            <div class="hotel-photo photo-2"></div>
+            <div class="hotel-body">
+              <h3 data-i18n="hotel2Name">Maison Lirio</h3>
+              <p class="hotel-meta" data-i18n="hotel2Meta">Mendoza, Argentina · 42 rooms</p>
+              <p data-i18n="hotel2Body">
+                Urban hideaway pairing refined service with vineyard experiences.
+              </p>
+            </div>
+          </div>
+          <div class="hotel-card">
+            <div class="hotel-photo photo-3"></div>
+            <div class="hotel-body">
+              <h3 data-i18n="hotel3Name">Sora City Hotel</h3>
+              <p class="hotel-meta" data-i18n="hotel3Meta">Osaka, Japan · 120 rooms</p>
+              <p data-i18n="hotel3Body">
+                Business-forward stay with dynamic meeting spaces and smart check-in.
+              </p>
+            </div>
+          </div>
+          <div class="hotel-card">
+            <div class="hotel-photo photo-4"></div>
+            <div class="hotel-body">
+              <h3 data-i18n="hotel4Name">Palm Grove Retreat</h3>
+              <p class="hotel-meta" data-i18n="hotel4Meta">Cartagena, Colombia · 64 rooms</p>
+              <p data-i18n="hotel4Body">
+                Courtyard resort celebrating slow travel, art, and private pools.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Sección testimonios -->
       <section class="section">
         <h2 data-i18n="trustTitle">Trusted by service-first operators.</h2>
@@ -970,21 +1393,17 @@
               within 48 hours.
             </p>
           </div>
-          <form
-            class="cta-form"
-            action="vargas.almengor@gmail.com"
-            method="post"
-            enctype="text/plain"
-          >
+          <form class="cta-form" id="forminfo" data-endpoint="https://form.kazehanacloud.com/api/forminfo/public">
             <div class="form-grid">
               <label class="field">
                 <span data-i18n="formNameLabel">Full name</span>
                 <input
                   type="text"
-                  name="name"
+                  name="fullName"
                   autocomplete="name"
                   required
-                  
+                  placeholder="Jane Doe"
+                  data-i18n-placeholder="formNamePlaceholder"
                 />
               </label>
               <label class="field">
@@ -994,17 +1413,19 @@
                   name="company"
                   autocomplete="organization"
                   required
-                  
+                  placeholder="Kazehana Hotels"
+                  data-i18n-placeholder="formCompanyPlaceholder"
                 />
               </label>
               <label class="field">
                 <span data-i18n="formEmailLabel">Work email</span>
                 <input
                   type="email"
-                  name="email"
+                  name="workEmail"
                   autocomplete="email"
-                  required                  
-                  
+                  required
+                  placeholder="name@hotel.com"
+                  data-i18n-placeholder="formEmailPlaceholder"
                 />
               </label>
               <label class="field">
@@ -1014,6 +1435,8 @@
                   name="phone"
                   autocomplete="tel"
                   required
+                  placeholder="+1 555 123 4567"
+                  data-i18n-placeholder="formPhonePlaceholder"
                 />
               </label>
               <label class="field">
@@ -1023,32 +1446,42 @@
                   name="rooms"
                   min="1"
                   required
+                  placeholder="120"
+                  data-i18n-placeholder="formRoomsPlaceholder"
                 />
               </label>
               <label class="field">
                 <span data-i18n="formLocationLabel">City / Country</span>
                 <input
                   type="text"
-                  name="location"
+                  name="cityCountry"
                   autocomplete="address-level2"
                   required
+                  placeholder="San José, Costa Rica"
+                  data-i18n-placeholder="formLocationPlaceholder"
                 />
               </label>
             </div>
             <label class="field">
               <span data-i18n="formMessageLabel">What do you need?</span>
               <textarea
-                name="message"
+                name="needs"
                 rows="3"
                 data-i18n-placeholder="formMessagePlaceholder"
                 placeholder="Tell us about your property, goals, and timeline."
               ></textarea>
             </label>
+            <label class="field" aria-hidden="true" style="position: absolute; left: -9999px;">
+              <span>Website</span>
+              <input type="text" name="website" autocomplete="off" tabindex="-1" />
+            </label>
+            <div class="cf-turnstile" data-sitekey="bc828cygvbc28gq79923"></div>
             <div class="form-footer">
               <button class="btn primary" type="submit" data-i18n="formSubmit">
                 Request a demo
               </button>
               <p class="form-note" data-i18n="formNote">We reply within 48 hours.</p>
+              <p class="form-note" id="forminfo-status" aria-live="polite"></p>
             </div>
           </form>
         </div>
@@ -1059,6 +1492,7 @@
         <div data-i18n="footer">© 2026 Kazehana Cloud PMS. Crafted for hotel operations teams.</div>
       </footer>
     </div>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <!-- Script de traducciones (auto-detección + selector manual) -->
     <script>
       (function () {
@@ -1073,6 +1507,7 @@
             navTeams: "Teams",
             navFaq: "FAQ",
             navContact: "Contact",
+            navLogin: "Log in",
             heroTitle: "Operations clarity for hotel teams.",
             heroBody:
               "Kazehana Cloud PMS connects reservations, table flow, housekeeping, and finance into one calm workspace. Stay ahead of arrivals, protect margins, and keep every guest journey intentional.",
@@ -1111,6 +1546,60 @@
             workflowTitle: "Workflow that feels effortless.",
             workflowLead:
               "Launch in weeks, not months. We map your property, build integrations, and train your team with concierge-level support.",
+            visionTitle: "System vision, mapped.",
+            visionLead:
+              "A shared source of truth connects guests, operations, and revenue — in one flow.",
+            diagram1Title: "Guest journey",
+            diagram1Body:
+              "From booking to post‑stay, every touchpoint stays connected.",
+            diagram1Node1: "Reservation",
+            diagram1Node2: "Stay experience",
+            diagram1Node3: "Return & loyalty",
+            diagram2Title: "Operations spine",
+            diagram2Body:
+              "Teams act on the same real‑time picture across departments.",
+            diagram2Node1: "Front desk",
+            diagram2Node2: "Housekeeping",
+            diagram2Node3: "F&B and spa",
+            diagram3Title: "Revenue intelligence",
+            diagram3Body:
+              "Signals unify pricing, packages, and profit by guest.",
+            diagram3Node1: "Rate strategy",
+            diagram3Node2: "Add‑ons",
+            diagram3Node3: "Forecasts",
+            screenshotsTitle: "Product snapshots",
+            screenshotsLead: "Early UI examples to visualize the daily workflow.",
+            noticeTitle:
+              "The best hotel management system will be available very soon.",
+            noticeBody: "We are refining the last details to open full access.",
+            noticeButton: "Got it",
+            shot1Label: "Arrivals",
+            shot1Title: "Arrival command center",
+            shot1Body: "Track check-ins, room status, and VIP notes in one view.",
+            shot2Label: "Housekeeping",
+            shot2Title: "Housekeeping live map",
+            shot2Body: "Prioritize rooms with smart queues and mobile checklists.",
+            shot3Label: "Revenue",
+            shot3Title: "Revenue pulse",
+            shot3Body: "Daily pace, upsell impact, and forecast changes.",
+            hotelsTitle: "Hotel profiles",
+            hotelsLead: "Examples of how properties showcase themselves inside the platform.",
+            hotel1Name: "Azure Bay Resort",
+            hotel1Meta: "Santa Marta, Colombia · 86 rooms",
+            hotel1Body:
+              "Boutique beachfront property focused on wellness and local gastronomy.",
+            hotel2Name: "Maison Lirio",
+            hotel2Meta: "Mendoza, Argentina · 42 rooms",
+            hotel2Body:
+              "Urban hideaway pairing refined service with vineyard experiences.",
+            hotel3Name: "Sora City Hotel",
+            hotel3Meta: "Osaka, Japan · 120 rooms",
+            hotel3Body:
+              "Business-forward stay with dynamic meeting spaces and smart check-in.",
+            hotel4Name: "Palm Grove Retreat",
+            hotel4Meta: "Cartagena, Colombia · 64 rooms",
+            hotel4Body:
+              "Courtyard resort celebrating slow travel, art, and private pools.",
             step1Title: "Discovery session",
             step1Body:
               "Align on your property mix, service style, and operational pain points.",
@@ -1166,7 +1655,9 @@
             formSubmit: "Request a demo",
             formNote: "We reply within 48 hours.",
             ctaButton: "Start the conversation",
-            footer: "© 2026 Kazehana Cloud PMS. Crafted for hotel operations teams."
+            footer: "© 2026 Kazehana Cloud PMS. Crafted for hotel operations teams.",
+            formSuccess: "Thank you! We will contact you soon.",
+            formError: "Submission failed. Please try again."
           },
           es: {
             title: "Kazehana Cloud PMS | Operaciones hoteleras simplificadas",
@@ -1178,6 +1669,7 @@
             navTeams: "Equipos",
             navFaq: "FAQ",
             navContact: "Contacto",
+            navLogin: "Iniciar sesión",
             heroTitle: "Claridad operativa para equipos hoteleros.",
             heroBody:
               "Kazehana Cloud PMS conecta reservas, flujo de mesas, housekeeping y finanzas en un espacio tranquilo. Anticípate a las llegadas, protege márgenes y cuida cada experiencia del huésped.",
@@ -1216,6 +1708,62 @@
             workflowTitle: "Flujo que se siente natural.",
             workflowLead:
               "Implementación en semanas, no meses. Mapeamos tu propiedad, creamos integraciones y entrenamos a tu equipo con soporte concierge.",
+            visionTitle: "Visión del sistema, en mapa.",
+            visionLead:
+              "Una sola fuente de verdad conecta huéspedes, operaciones e ingresos en un flujo.",
+            diagram1Title: "Viaje del huésped",
+            diagram1Body:
+              "De la reserva al post‑estancia, cada punto de contacto sigue conectado.",
+            diagram1Node1: "Reserva",
+            diagram1Node2: "Experiencia de estancia",
+            diagram1Node3: "Retorno y lealtad",
+            diagram2Title: "Columna operativa",
+            diagram2Body:
+              "Los equipos actúan con la misma vista en tiempo real.",
+            diagram2Node1: "Recepción",
+            diagram2Node2: "Housekeeping",
+            diagram2Node3: "A&B y spa",
+            diagram3Title: "Inteligencia de ingresos",
+            diagram3Body:
+              "Señales que unifican precios, paquetes y rentabilidad por huésped.",
+            diagram3Node1: "Estrategia de tarifas",
+            diagram3Node2: "Upsells",
+            diagram3Node3: "Pronósticos",
+            screenshotsTitle: "Capturas del producto",
+            screenshotsLead: "Ejemplos de UI para visualizar el flujo diario.",
+            noticeTitle:
+              "Muy pronto estará disponible el mejor sistema de gestión hotelera.",
+            noticeBody: "Estamos afinando los últimos detalles para abrir acceso completo.",
+            noticeButton: "Entendido",
+            shot1Label: "Llegadas",
+            shot1Title: "Centro de control de llegadas",
+            shot1Body:
+              "Controla check-ins, estado de habitaciones y notas VIP en una sola vista.",
+            shot2Label: "Housekeeping",
+            shot2Title: "Mapa en vivo de housekeeping",
+            shot2Body: "Prioriza habitaciones con colas inteligentes y checklists móviles.",
+            shot3Label: "Ingresos",
+            shot3Title: "Pulso de ingresos",
+            shot3Body: "Ritmo diario, impacto de upsell y cambios de forecast.",
+            hotelsTitle: "Perfiles de hoteles",
+            hotelsLead:
+              "Ejemplos de cómo las propiedades se muestran dentro de la plataforma.",
+            hotel1Name: "Azure Bay Resort",
+            hotel1Meta: "Santa Marta, Colombia · 86 habitaciones",
+            hotel1Body:
+              "Boutique frente al mar enfocada en bienestar y gastronomía local.",
+            hotel2Name: "Maison Lirio",
+            hotel2Meta: "Mendoza, Argentina · 42 habitaciones",
+            hotel2Body:
+              "Refugio urbano con servicio refinado y experiencias de viñedo.",
+            hotel3Name: "Sora City Hotel",
+            hotel3Meta: "Osaka, Japón · 120 habitaciones",
+            hotel3Body:
+              "Estadía ejecutiva con espacios de reuniones dinámicos y check-in inteligente.",
+            hotel4Name: "Palm Grove Retreat",
+            hotel4Meta: "Cartagena, Colombia · 64 habitaciones",
+            hotel4Body:
+              "Resort con patios que celebra el slow travel, arte y piscinas privadas.",
             step1Title: "Sesión de descubrimiento",
             step1Body:
               "Alineamos tu mix de propiedad, estilo de servicio y puntos de dolor operativos.",
@@ -1271,7 +1819,9 @@
             formSubmit: "Solicitar demo",
             formNote: "Respondemos en 48 horas.",
             ctaButton: "Inicia la conversación",
-            footer: "© 2026 Kazehana Cloud PMS. Hecho para equipos hoteleros."
+            footer: "© 2026 Kazehana Cloud PMS. Hecho para equipos hoteleros.",
+            formSuccess: "¡Gracias! Nos pondremos en contacto pronto.",
+            formError: "Error al enviar. Inténtalo de nuevo."
           },
           fr: {
             title: "Kazehana Cloud PMS | Exploitation hôtelière simplifiée",
@@ -1283,6 +1833,7 @@
             navTeams: "Équipes",
             navFaq: "FAQ",
             navContact: "Contact",
+            navLogin: "Se connecter",
             heroTitle: "La clarté opérationnelle pour les équipes hôtelières.",
             heroBody:
               "Kazehana Cloud PMS relie les réservations, le flux des tables, le housekeeping et la finance dans un seul espace serein. Anticipez les arrivées, protégez les marges et soignez chaque parcours client.",
@@ -1321,6 +1872,65 @@
             workflowTitle: "Un flux qui paraît naturel.",
             workflowLead:
               "Lancement en semaines, pas en mois. Nous cartographions votre établissement, créons les intégrations et formons l’équipe avec un support concierge.",
+            visionTitle: "Vision du système, cartographiée.",
+            visionLead:
+              "Une source de vérité unique relie clients, opérations et revenus en un seul flux.",
+            diagram1Title: "Parcours client",
+            diagram1Body:
+              "De la réservation à l’après‑séjour, chaque point de contact reste connecté.",
+            diagram1Node1: "Réservation",
+            diagram1Node2: "Expérience de séjour",
+            diagram1Node3: "Retour & fidélité",
+            diagram2Title: "Colonne opérationnelle",
+            diagram2Body:
+              "Les équipes agissent avec la même vue en temps réel.",
+            diagram2Node1: "Réception",
+            diagram2Node2: "Housekeeping",
+            diagram2Node3: "F&B et spa",
+            diagram3Title: "Intelligence revenu",
+            diagram3Body:
+              "Signaux qui unifient tarifs, forfaits et profit par client.",
+            diagram3Node1: "Stratégie tarifaire",
+            diagram3Node2: "Suppléments",
+            diagram3Node3: "Prévisions",
+            screenshotsTitle: "Captures produit",
+            screenshotsLead: "Exemples d’interface pour visualiser le flux quotidien.",
+            noticeTitle:
+              "Le meilleur système de gestion hôtelière arrive très bientôt.",
+            noticeBody:
+              "Nous peaufinons les derniers détails pour ouvrir l’accès complet.",
+            noticeButton: "Compris",
+            shot1Label: "Arrivées",
+            shot1Title: "Centre de contrôle des arrivées",
+            shot1Body:
+              "Suivez check-ins, statut des chambres et notes VIP en une vue.",
+            shot2Label: "Housekeeping",
+            shot2Title: "Carte live du housekeeping",
+            shot2Body:
+              "Priorisez les chambres avec files intelligentes et checklists mobiles.",
+            shot3Label: "Revenus",
+            shot3Title: "Pulse revenu",
+            shot3Body:
+              "Rythme quotidien, impact des upsells et changements de prévisions.",
+            hotelsTitle: "Profils d’hôtels",
+            hotelsLead:
+              "Exemples de mise en valeur des établissements dans la plateforme.",
+            hotel1Name: "Azure Bay Resort",
+            hotel1Meta: "Santa Marta, Colombie · 86 chambres",
+            hotel1Body:
+              "Boutique en bord de mer axée sur le bien-être et la gastronomie locale.",
+            hotel2Name: "Maison Lirio",
+            hotel2Meta: "Mendoza, Argentine · 42 chambres",
+            hotel2Body:
+              "Refuge urbain au service raffiné et expériences viticoles.",
+            hotel3Name: "Sora City Hotel",
+            hotel3Meta: "Osaka, Japon · 120 chambres",
+            hotel3Body:
+              "Séjour business avec espaces de réunion dynamiques et check-in intelligent.",
+            hotel4Name: "Palm Grove Retreat",
+            hotel4Meta: "Cartagena, Colombie · 64 chambres",
+            hotel4Body:
+              "Resort à patio célébrant slow travel, art et piscines privées.",
             step1Title: "Session de découverte",
             step1Body:
               "Alignement sur votre mix, votre style de service et vos points de friction.",
@@ -1376,7 +1986,9 @@
             formSubmit: "Demander une démo",
             formNote: "Réponse sous 48 heures.",
             ctaButton: "Démarrer la conversation",
-            footer: "© 2026 Kazehana Cloud PMS. Conçu pour les équipes hôtelières."
+            footer: "© 2026 Kazehana Cloud PMS. Conçu pour les équipes hôtelières.",
+            formSuccess: "Merci ! Nous vous contacterons bientôt.",
+            formError: "Échec de l'envoi. Veuillez réessayer."
           },
           pt: {
             title: "Kazehana Cloud PMS | Operações de hotelaria simplificadas",
@@ -1388,6 +2000,7 @@
             navTeams: "Equipes",
             navFaq: "FAQ",
             navContact: "Contato",
+            navLogin: "Entrar",
             heroTitle: "Clareza operacional para equipes hoteleiras.",
             heroBody:
               "Kazehana Cloud PMS conecta reservas, fluxo de mesas, governança e finanças em um único espaço tranquilo. Antecipe chegadas, proteja margens e mantenha cada jornada do hóspede intencional.",
@@ -1426,6 +2039,64 @@
             workflowTitle: "Fluxo de trabalho sem esforço.",
             workflowLead:
               "Implantação em semanas, não meses. Mapeamos sua propriedade, criamos integrações e treinamos sua equipe com suporte concierge.",
+            visionTitle: "Visão do sistema, mapeada.",
+            visionLead:
+              "Uma fonte única de verdade conecta hóspedes, operações e receita em um fluxo.",
+            diagram1Title: "Jornada do hóspede",
+            diagram1Body:
+              "Da reserva ao pós‑estadia, cada ponto de contato fica conectado.",
+            diagram1Node1: "Reserva",
+            diagram1Node2: "Experiência de estadia",
+            diagram1Node3: "Retorno e fidelidade",
+            diagram2Title: "Coluna operacional",
+            diagram2Body:
+              "Times agem com a mesma visão em tempo real.",
+            diagram2Node1: "Recepção",
+            diagram2Node2: "Governança",
+            diagram2Node3: "A&B e spa",
+            diagram3Title: "Inteligência de receita",
+            diagram3Body:
+              "Sinais que unem tarifas, pacotes e lucro por hóspede.",
+            diagram3Node1: "Estratégia de tarifas",
+            diagram3Node2: "Upsells",
+            diagram3Node3: "Previsões",
+            screenshotsTitle: "Capturas do produto",
+            screenshotsLead: "Exemplos de UI para visualizar o fluxo diário.",
+            noticeTitle:
+              "O melhor sistema de gestão hoteleira estará disponível muito em breve.",
+            noticeBody:
+              "Estamos refinando os últimos detalhes para abrir acesso completo.",
+            noticeButton: "Entendi",
+            shot1Label: "Chegadas",
+            shot1Title: "Central de chegadas",
+            shot1Body:
+              "Acompanhe check-ins, status de quartos e notas VIP em uma visão.",
+            shot2Label: "Governança",
+            shot2Title: "Mapa ao vivo da governança",
+            shot2Body:
+              "Priorize quartos com filas inteligentes e checklists móveis.",
+            shot3Label: "Receita",
+            shot3Title: "Pulso de receita",
+            shot3Body: "Ritmo diário, impacto de upsell e mudanças de forecast.",
+            hotelsTitle: "Perfis de hotéis",
+            hotelsLead:
+              "Exemplos de como as propriedades se apresentam na plataforma.",
+            hotel1Name: "Azure Bay Resort",
+            hotel1Meta: "Santa Marta, Colômbia · 86 quartos",
+            hotel1Body:
+              "Boutique à beira-mar com foco em bem-estar e gastronomia local.",
+            hotel2Name: "Maison Lirio",
+            hotel2Meta: "Mendoza, Argentina · 42 quartos",
+            hotel2Body:
+              "Refúgio urbano com serviço refinado e experiências em vinhedos.",
+            hotel3Name: "Sora City Hotel",
+            hotel3Meta: "Osaka, Japão · 120 quartos",
+            hotel3Body:
+              "Estadia corporativa com salas dinâmicas e check-in inteligente.",
+            hotel4Name: "Palm Grove Retreat",
+            hotel4Meta: "Cartagena, Colômbia · 64 quartos",
+            hotel4Body:
+              "Resort com pátios que celebra slow travel, arte e piscinas privadas.",
             step1Title: "Sessão de descoberta",
             step1Body:
               "Alinhar mix de propriedades, estilo de serviço e dores operacionais.",
@@ -1481,7 +2152,9 @@
             formSubmit: "Solicitar demonstração",
             formNote: "Respondemos em 48 horas.",
             ctaButton: "Iniciar a conversa",
-            footer: "© 2026 Kazehana Cloud PMS. Criado para equipes hoteleiras."
+            footer: "© 2026 Kazehana Cloud PMS. Criado para equipes hoteleiras.",
+            formSuccess: "Obrigado! Entraremos em contato em breve.",
+            formError: "Falha no envio. Por favor, tente novamente."
           },
           it: {
             title: "Kazehana Cloud PMS | Operazioni alberghiere semplificate",
@@ -1493,6 +2166,7 @@
             navTeams: "Team",
             navFaq: "FAQ",
             navContact: "Contatto",
+            navLogin: "Accedi",
             heroTitle: "Chiarezza operativa per team alberghieri.",
             heroBody:
               "Kazehana Cloud PMS collega prenotazioni, flusso tavoli, housekeeping e finanza in un unico spazio tranquillo. Anticipa gli arrivi, proteggi i margini e cura ogni percorso ospite.",
@@ -1531,6 +2205,64 @@
             workflowTitle: "Un flusso che sembra naturale.",
             workflowLead:
               "Avvio in settimane, non in mesi. Mappiamo la tua struttura, costruiamo integrazioni e formiamo il team con supporto concierge.",
+            visionTitle: "Visione del sistema, mappata.",
+            visionLead:
+              "Un’unica fonte di verità collega ospiti, operazioni e ricavi in un flusso.",
+            diagram1Title: "Viaggio dell’ospite",
+            diagram1Body:
+              "Dalla prenotazione al post‑soggiorno, ogni touchpoint resta connesso.",
+            diagram1Node1: "Prenotazione",
+            diagram1Node2: "Esperienza di soggiorno",
+            diagram1Node3: "Ritorno e fedeltà",
+            diagram2Title: "Spina operativa",
+            diagram2Body:
+              "I team agiscono con la stessa vista in tempo reale.",
+            diagram2Node1: "Front desk",
+            diagram2Node2: "Housekeeping",
+            diagram2Node3: "F&B e spa",
+            diagram3Title: "Intelligenza ricavi",
+            diagram3Body:
+              "Segnali che uniscono prezzi, pacchetti e profitto per ospite.",
+            diagram3Node1: "Strategia tariffaria",
+            diagram3Node2: "Add‑on",
+            diagram3Node3: "Previsioni",
+            screenshotsTitle: "Snapshot del prodotto",
+            screenshotsLead: "Esempi di UI per visualizzare il flusso quotidiano.",
+            noticeTitle:
+              "Il miglior sistema di gestione alberghiera sarà disponibile molto presto.",
+            noticeBody:
+              "Stiamo rifinendo gli ultimi dettagli per aprire l’accesso completo.",
+            noticeButton: "Capito",
+            shot1Label: "Arrivi",
+            shot1Title: "Centro arrivi",
+            shot1Body:
+              "Monitora check-in, stato camere e note VIP in una vista.",
+            shot2Label: "Housekeeping",
+            shot2Title: "Mappa live housekeeping",
+            shot2Body:
+              "Prioritizza camere con code smart e checklist mobile.",
+            shot3Label: "Ricavi",
+            shot3Title: "Pulse ricavi",
+            shot3Body: "Andamento giornaliero, impatto upsell e variazioni forecast.",
+            hotelsTitle: "Profili hotel",
+            hotelsLead:
+              "Esempi di come le strutture si presentano nella piattaforma.",
+            hotel1Name: "Azure Bay Resort",
+            hotel1Meta: "Santa Marta, Colombia · 86 camere",
+            hotel1Body:
+              "Boutique fronte mare con focus su benessere e gastronomia locale.",
+            hotel2Name: "Maison Lirio",
+            hotel2Meta: "Mendoza, Argentina · 42 camere",
+            hotel2Body:
+              "Rifugio urbano con servizio raffinato ed esperienze in vigna.",
+            hotel3Name: "Sora City Hotel",
+            hotel3Meta: "Osaka, Giappone · 120 camere",
+            hotel3Body:
+              "Soggiorno business con spazi meeting dinamici e check-in smart.",
+            hotel4Name: "Palm Grove Retreat",
+            hotel4Meta: "Cartagena, Colombia · 64 camere",
+            hotel4Body:
+              "Resort con patio che celebra slow travel, arte e piscine private.",
             step1Title: "Sessione di scoperta",
             step1Body:
               "Allineamento su mix della proprietà, stile di servizio e criticità operative.",
@@ -1586,7 +2318,9 @@
             formSubmit: "Richiedi una demo",
             formNote: "Rispondiamo entro 48 ore.",
             ctaButton: "Inizia la conversazione",
-            footer: "© 2026 Kazehana Cloud PMS. Creato per team alberghieri."
+            footer: "© 2026 Kazehana Cloud PMS. Creato per team alberghieri.",
+            formSuccess: "Grazie! Ti contatteremo presto.",
+            formError: "Invio fallito. Per favore riprova."
           },
           ja: {
             title: "Kazehana Cloud PMS | ホスピタリティ運営をシンプルに",
@@ -1598,6 +2332,7 @@
             navTeams: "チーム",
             navFaq: "FAQ",
             navContact: "お問い合わせ",
+            navLogin: "ログイン",
             heroTitle: "ホテルチームのための、明快なオペレーション。",
             heroBody:
               "Kazehana Cloud PMS は予約、テーブル回転、ハウスキーピング、財務を一つの落ち着いたワークスペースに統合します。到着を先読みし、利益を守り、すべてのゲスト体験を丁寧に。",
@@ -1636,6 +2371,61 @@
             workflowTitle: "無理のない導入フロー。",
             workflowLead:
               "数か月ではなく数週間で立ち上げ。施設のマッピング、連携構築、チームトレーニングまで伴走。",
+            visionTitle: "システムのビジョンを可視化。",
+            visionLead:
+              "ゲスト、オペレーション、収益を一つの流れでつなぎます。",
+            diagram1Title: "ゲストジャーニー",
+            diagram1Body: "予約から滞在後まで、すべての接点を連結。",
+            diagram1Node1: "予約",
+            diagram1Node2: "滞在体験",
+            diagram1Node3: "再訪・ロイヤルティ",
+            diagram2Title: "運営の背骨",
+            diagram2Body:
+              "部門をまたいで同じリアルタイム視点で行動。",
+            diagram2Node1: "フロント",
+            diagram2Node2: "ハウスキーピング",
+            diagram2Node3: "F&B・スパ",
+            diagram3Title: "収益インテリジェンス",
+            diagram3Body:
+              "価格、パッケージ、利益をゲスト単位で統合。",
+            diagram3Node1: "料金戦略",
+            diagram3Node2: "追加販売",
+            diagram3Node3: "予測",
+            screenshotsTitle: "画面イメージ",
+            screenshotsLead: "日々のワークフローを想像できるUI例。",
+            noticeTitle:
+              "最高のホテル管理システムはまもなく公開されます。",
+            noticeBody:
+              "完全公開に向けて最終調整を行っています。",
+            noticeButton: "了解しました",
+            shot1Label: "到着",
+            shot1Title: "到着コマンドセンター",
+            shot1Body:
+              "チェックイン、客室状況、VIPメモを一画面で。",
+            shot2Label: "ハウスキーピング",
+            shot2Title: "ハウスキーピングマップ",
+            shot2Body: "優先順位とモバイルチェックリストで最適化。",
+            shot3Label: "収益",
+            shot3Title: "収益パルス",
+            shot3Body: "日次ペース、アップセル効果、予測変化。",
+            hotelsTitle: "ホテルプロファイル",
+            hotelsLead: "プラットフォーム上での施設表示例。",
+            hotel1Name: "Azure Bay Resort",
+            hotel1Meta: "コロンビア・サンタマルタ · 86室",
+            hotel1Body:
+              "ウェルネスと地元料理に注力したビーチフロントのブティック。",
+            hotel2Name: "Maison Lirio",
+            hotel2Meta: "アルゼンチン・メンドーサ · 42室",
+            hotel2Body:
+              "洗練されたサービスとワイナリー体験を備えた都会の隠れ家。",
+            hotel3Name: "Sora City Hotel",
+            hotel3Meta: "日本・大阪 · 120室",
+            hotel3Body:
+              "ダイナミックな会議スペースとスマートチェックインのビジネス滞在。",
+            hotel4Name: "Palm Grove Retreat",
+            hotel4Meta: "コロンビア・カルタヘナ · 64室",
+            hotel4Body:
+              "中庭リゾート。スロートラベル、アート、プライベートプール。",
             step1Title: "ディスカバリー",
             step1Body:
               "施設構成、サービススタイル、課題を整理。",
@@ -1691,7 +2481,9 @@
             formSubmit: "デモを依頼",
             formNote: "48時間以内にご連絡します。",
             ctaButton: "お問い合わせを開始",
-            footer: "© 2026 Kazehana Cloud PMS. ホテル運営チームのために。"
+            footer: "© 2026 Kazehana Cloud PMS. ホテル運営チームのために。",
+            formSuccess: "ありがとうございます！近日中にご連絡いたします。",
+            formError: "送信に失敗しました。もう一度お試しください。"
           }
         };
 
@@ -1775,6 +2567,106 @@
           updateHeaderHeight();
         }
 
+        function initNotice() {
+          const overlay = document.getElementById("noticeOverlay");
+          const closeBtn = document.getElementById("noticeClose");
+          if (!overlay || !closeBtn) return;
+
+          function hideNotice() {
+            overlay.style.display = "none";
+            overlay.setAttribute("aria-hidden", "true");
+            try {
+              localStorage.setItem("noticeDismissed", "true");
+            } catch (err) {
+              // Ignore storage errors
+            }
+          }
+
+          let dismissed = false;
+          try {
+            dismissed = localStorage.getItem("noticeDismissed") === "true";
+          } catch (err) {
+            // Ignore storage errors
+          }
+
+          if (!dismissed) {
+            overlay.style.display = "grid";
+            overlay.setAttribute("aria-hidden", "false");
+          }
+
+          closeBtn.addEventListener("click", hideNotice);
+          overlay.addEventListener("click", (event) => {
+            if (event.target === overlay) {
+              hideNotice();
+            }
+          });
+          document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && overlay.style.display !== "none") {
+              hideNotice();
+            }
+          });
+        }
+
+        function initCarousel() {
+          const carousel = document.querySelector("[data-carousel]");
+          if (!carousel) return;
+          const track = carousel.querySelector(".carousel-track");
+          const slides = Array.from(carousel.querySelectorAll("[data-slide]"));
+          const dots = Array.from(carousel.querySelectorAll("[data-dot]"));
+          const prev = carousel.querySelector("[data-prev]");
+          const next = carousel.querySelector("[data-next]");
+          let index = 0;
+          let timerId = null;
+
+          function update() {
+            if (!track) return;
+            track.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach((dot, i) => {
+              dot.classList.toggle("is-active", i === index);
+            });
+          }
+
+          function goTo(nextIndex) {
+            if (slides.length === 0) return;
+            index = (nextIndex + slides.length) % slides.length;
+            update();
+          }
+
+          function startTimer() {
+            timerId = window.setInterval(() => {
+              goTo(index + 1);
+            }, 6000);
+          }
+
+          function stopTimer() {
+            if (timerId) {
+              window.clearInterval(timerId);
+              timerId = null;
+            }
+          }
+
+          if (prev) {
+            prev.addEventListener("click", () => goTo(index - 1));
+          }
+
+          if (next) {
+            next.addEventListener("click", () => goTo(index + 1));
+          }
+
+          dots.forEach((dot, i) => {
+            dot.addEventListener("click", () => goTo(i));
+          });
+
+          carousel.addEventListener("mouseenter", stopTimer);
+          carousel.addEventListener("mouseleave", () => {
+            stopTimer();
+            startTimer();
+          });
+
+          update();
+          startTimer();
+        }
+
         const select = document.getElementById("langSelect");
         const toggle = document.getElementById("headerToggle");
         const header = document.querySelector("header");
@@ -1820,9 +2712,56 @@
         }
 
         applyTranslations(initialLang);
+        initNotice();
+        initCarousel();
 
         window.addEventListener("resize", updateHeaderHeight);
         window.addEventListener("load", updateHeaderHeight);
+
+        window._kzt = function (key) {
+          const lang = document.documentElement.lang || defaultLang;
+          const t = translations[supported.includes(lang) ? lang : defaultLang];
+          return (t && t[key]) || "";
+        };
+      })();
+    </script>
+    <script>
+      (function () {
+        const form = document.getElementById("forminfo");
+        const status = document.getElementById("forminfo-status");
+        if (!form) return;
+
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          status.textContent = "";
+
+          const endpoint = form.dataset.endpoint || "/api/forminfo/public";
+          const formData = new FormData(form);
+          const payload = Object.fromEntries(formData.entries());
+          payload.formType = "landing";
+          payload.pageUrl = window.location.href;
+          payload.source = "static-website";
+
+          const msgSuccess = (window._kzt && window._kzt("formSuccess")) || "Thank you! We will contact you soon.";
+          const msgError = (window._kzt && window._kzt("formError")) || "Submission failed. Please try again.";
+
+          try {
+            const response = await fetch(endpoint, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload),
+            });
+            if (!response.ok) {
+              const data = await response.json().catch(() => ({}));
+              status.textContent = data.message || msgError;
+              return;
+            }
+            form.reset();
+            status.textContent = msgSuccess;
+          } catch (err) {
+            status.textContent = msgError;
+          }
+        });
       })();
     </script>
   </body>

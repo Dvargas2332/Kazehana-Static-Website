@@ -32,6 +32,9 @@ check(/<nav>\s*[\s\S]*#contact/i.test(html), "Navigation includes #contact");
 check(/<section class="section" id="faq">/i.test(html), "FAQ section exists");
 const faqCount = (html.match(/<details class="faq-item">/g) || []).length;
 check(faqCount >= 5, "FAQ contains at least 5 items");
+check(/id="noticeOverlay"/i.test(html), "Notice overlay exists");
+check(/id="noticeClose"/i.test(html), "Notice close button exists");
+check(/function initNotice\(\)/.test(html), "Notice initialization exists");
 
 const languages = ["en:", "es:", "fr:", "pt:", "it:", "ja:"];
 const missingLang = languages.filter((lang) => !html.includes(lang));
@@ -48,6 +51,7 @@ const missingIcons = iconFiles.filter((file) => !fileExists(file));
 check(missingIcons.length === 0, "All module icons exist in ico/");
 
 check(fileExists("LICENSE.md"), "LICENSE.md exists");
+check(fileExists("NOTICE.md"), "NOTICE.md exists");
 check(fileExists("README.md"), "README.md exists");
 
 const failed = checks.filter((item) => !item.ok);

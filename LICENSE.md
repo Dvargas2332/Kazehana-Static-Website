@@ -7,4 +7,4 @@ Any use, modification, distribution, deployment, or commercial exploitation is p
 without a separate written license agreement from the copyright holder.
 
 Jurisdiction: Costa Rica
-Contact: vargas.almengor@gmail.com
+Contact for licensing or purchase: vargas.almengor@gmail.com

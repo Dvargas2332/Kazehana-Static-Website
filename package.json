@@ -2,6 +2,7 @@
   "name": "static-website",
   "version": "1.0.0",
   "private": true,
+  "license": "UNLICENSED",
   "description": "Standalone static landing page",
   "main": "server.js",
   "scripts": {

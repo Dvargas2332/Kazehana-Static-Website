@@ -1,54 +1,86 @@
-﻿# Kazehana Cloud PMS – Web Estática
+🌸 Kazehana Cloud PMS — Sitio Web Oficial
+Mostrar imagen
+Mostrar imagen
+Mostrar imagen
+Mostrar imagen
+Mostrar imagen
+Landing page pública del sistema de gestión hotelera Kazehana Cloud PMS. Completamente estática — HTML, CSS y JS en un solo archivo, sin frameworks ni dependencias de build.
+
+🔗 Ver sitio en vivo →
 
 
-**Aviso:** Código propietario. Solo revisión/evaluación. Uso comercial requiere licencia por escrito.
+✨ Características
 
-[![CI](https://github.com/Dvargas2332/Kazehana-Static-Website/actions/workflows/ci.yml/badge.svg)](https://github.com/Dvargas2332/Kazehana-Static-Website/actions/workflows/ci.yml)
+🌍 Multiidioma — EN / ES / FR / PT / IT / JA con autodetección por navegador y persistencia en localStorage
+📋 Secciones completas — Hero, módulos, equipos, flujo de trabajo, visión del sistema, capturas de producto, testimonios, FAQ y contacto
+📬 Formulario de contacto — Envío via API con protección antispam mediante Cloudflare Turnstile
+🎠 Carrusel de capturas — Autoplay con controles manuales
+📌 Header colapsable — Con estado persistente entre sesiones
+✅ CI automatizado — Suite de validación ejecutada en cada push
 
 
-Landing page estática con selector de idioma, sección de módulos con íconos y formulario de contacto (mailto).
-Static landing page with language selector, module icons, and contact form (mailto).
+🛠️ Stack
+TecnologíaUsoHTML5Estructura completa de la páginaCSS3Estilos integrados en el HTMLJavaScriptInteractividad, multiidioma, carruselCloudflare TurnstileProtección antispam del formularioGitHub ActionsCI/CD automatizadoGitHub PagesHosting gratuito
 
-## Licencia
-Este repositorio es **propietario**. Se permite la revisión del código solo para fines de evaluación.
-Para cualquier uso, modificación, distribución, despliegue o explotación comercial se requiere
-un acuerdo de licencia por escrito.
+⚙️ Requisitos
 
-## Requisitos
-- Node.js (solo si quieres usar el servidor local).
+Node.js v18 o superior (solo para desarrollo local)
 
-## Ejecutar en local
-```powershell
-cd "C:\Users\varga\Desktop\PROYECTOS DE PROGRAMACION\PROYECTO PMS\static-website"
-npm start
-```
-Abre `http://localhost:3000`.
 
-También puedes abrir `index.html` directamente en el navegador.
+🚀 Desarrollo local
+bashnpm start
+Abre http://localhost:3000 en el navegador.
 
-## Estructura
-- `index.html` : Página principal (HTML + CSS + JS integrado)
-- `server.js` : Servidor estático mínimo (sin dependencias)
-- `ico/` : Íconos usados en la sección de módulos
-- `Log/` : Logo(s)
+También puedes abrir index.html directamente en el navegador sin necesidad de servidor.
 
-## Idiomas
-Detección automática por navegador + selector manual. El idioma elegido se guarda en `localStorage`.
 
-## Formulario de contacto
-El formulario usa `mailto:` (abre el cliente de correo). Si necesitas envío real sin abrir correo, intégralo con un backend o servicio (Formspree, AWS, etc.).
+📁 Estructura
+Kazehana-Static-Website/
+├── index.html          # Página completa (HTML + CSS + JS)
+├── server.js           # Servidor estático local (sin dependencias)
+├── scripts/
+│   └── validate.js     # Validaciones automáticas de estructura y contenido
+├── ico/                # Íconos de los módulos del PMS
+├── Log/                # Logotipo de la marca Kazehana
+└── .github/
+    └── workflows/
+        └── ci.yml      # Pipeline de integración continua
 
-## Deploy (opcional)
-### GitHub Pages
-1. Crea un repo y sube el contenido.
-2. En GitHub, ve a **Settings → Pages**.
-3. Selecciona la rama (`main`) y la carpeta raíz.
-4. Guarda y espera a que publique.
+🧪 Validación
+bashnpm test
+Verifica automáticamente:
 
-### AWS S3 (sitio estático)
-1. Crea el bucket y habilita **Static Website Hosting**.
-2. Sube los archivos (`index.html`, `ico/`, `Log/`).
-3. Desactiva **Block Public Access** si el sitio será público.
-4. Aplica una policy de solo lectura.
+Existencia de archivos clave
+Secciones de navegación
+Ítems del FAQ
+Traducciones en todos los idiomas
+Recursos de imagen
 
-Si necesitas ayuda con cualquiera de estos pasos, dímelo y lo preparo.
+
+🌐 Deploy
+GitHub Pages (recomendado)
+
+Ve a Settings → Pages en el repositorio
+Selecciona rama main y carpeta raíz /
+Guarda — GitHub publica la URL automáticamente
+
+AWS S3 (producción)
+
+Crea el bucket y habilita Static Website Hosting
+Sube index.html, ico/ y Log/
+Aplica bucket policy de solo lectura (s3:GetObject)
+
+
+👨‍💻 Autor
+Diego Alonso Vargas Almengor
+
+GitHub: @Dvargas2332
+LinkedIn: Diego Vargas
+Email: vargas.almengor@gmail.com
+
+
+📄 Licencia — Propietaria
+© 2025-2026 Diego Alonso Vargas Almengor. Todos los derechos reservados.
+Código propietario. Se permite la revisión para fines de evaluación únicamente.
+Cualquier uso, modificación, distribución o explotación comercial requiere acuerdo de licencia por escrito.
+Ver archivo LICENSE.md para los términos completos.
