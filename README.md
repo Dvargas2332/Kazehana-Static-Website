@@ -63,7 +63,7 @@ Kazehana-Static-Website/
 |-- scripts/
 |   `-- validate.js     # Validaciones automaticas de estructura y contenido
 |-- ico/                # Iconos de los modulos del PMS
-|-- Log/                # Logotipo de la marca Kazehana
+|-- ico/                # Iconos de modulos y logo de la marca Kazehana
 `-- .github/
     `-- workflows/
         `-- ci.yml      # Pipeline de integracion continua
@@ -104,7 +104,7 @@ Verifica automaticamente:
 
 ### AWS S3
 1. Crea el bucket y habilita **Static Website Hosting**.
-2. Sube `index.html`, `ico/` y `Log/`.
+2. Sube `index.html` e `ico/`.
 3. Aplica una bucket policy de solo lectura (`s3:GetObject`).
 
 ---
