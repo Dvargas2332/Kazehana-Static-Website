@@ -111,13 +111,16 @@ pages.forEach(function (page) {
 const jsFiles = [
   "js/i18n-data.js",
   "js/i18n.js",
+  "js/toast.js",
   "js/carousel.js",
-  "js/header-toggle.js",
+  "js/header-sticky.js",
+  "js/mobile-menu.js",
   "js/notice.js",
   "js/form-handler.js",
   "js/dark-mode.js",
   "js/scroll-reveal.js",
   "js/smooth-scroll.js",
+  "js/scroll-to-top.js",
   "js/main.js"
 ];
 const missingJs = jsFiles.filter(function (f) { return !fileExists(f); });
