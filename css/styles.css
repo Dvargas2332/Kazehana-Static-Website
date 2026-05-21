@@ -15,9 +15,14 @@
   --accent-deep: #7c2d12;
   --sand: #0a0806;
   --sky: #12100e;
-  --card: rgba(22, 18, 14, 0.55);
-  --card-border: rgba(249, 115, 22, 0.12);
-  --card-hover: rgba(22, 18, 14, 0.75);
+  --warm-950: #1c1610;
+  --warm-900: #29241e;
+  --warm-800: #3d3630;
+  --warm-700: #5c524a;
+  --warm-600: #7a6e64;
+  --card: rgba(28, 22, 16, 0.55);
+  --card-border: rgba(160, 130, 100, 0.12);
+  --card-hover: rgba(28, 22, 16, 0.75);
   --glow-orange: 0 0 40px rgba(249, 115, 22, 0.25);
   --glow-warm: 0 0 40px rgba(251, 146, 60, 0.15);
   --radius-xl: 24px;
@@ -49,6 +54,15 @@ img { max-width: 100%; display: block; }
 /* Smooth theme transitions */
 html, body, header, footer, .section, .card, .module-card, .pricing-card, .hotel-card, .quote, .vision-card, .support-card, .contact-card, .integration-card, .addon-card, .award-card, .value-card, .summary-card, .carousel, .cta-form, .hero-dash, .faq-item, .field input, .field select, .field textarea, .nl-input input {
   transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* ── Footer disabled links ─────────────── */
+.footer-link-disabled {
+  color: var(--muted);
+  font-size: 0.87rem;
+  width: fit-content;
+  cursor: default;
+  opacity: 0.6;
 }
 
 /* ── Background ────────────────────────── */
@@ -581,8 +595,10 @@ nav a:hover span::after, nav a.active span::after { width: 100%; }
   font-family: "Fraunces", serif; font-size: 2.5rem;
   color: var(--accent); opacity: 0.25; line-height: 1;
 }
-.quote p { color: var(--muted); line-height: 1.6; margin: 10px 0 12px; font-size: 0.9rem; }
-.quote strong { font-size: 0.9rem; }
+.quote p { color: var(--muted); line-height: 1.6; margin: 10px 0 16px; font-size: 0.9rem; }
+.quote-author { display: grid; gap: 2px; }
+.quote-author strong { font-size: 0.9rem; color: var(--ink); }
+.quote-author span { font-size: 0.78rem; color: var(--warm-600); }
 
 .quote.featured {
   padding: 32px;
@@ -648,7 +664,7 @@ nav a:hover span::after, nav a.active span::after { width: 100%; }
 .field input, .field select, .field textarea {
   width: 100%; padding: 12px 16px; border-radius: 12px;
   border: 1px solid rgba(232, 228, 240, 0.15);
-  background: rgba(10, 10, 26, 0.5); font-family: inherit;
+  background: rgba(28, 22, 16, 0.5); font-family: inherit;
   font-size: 0.93rem; color: var(--ink);
   transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
 }
@@ -694,15 +710,15 @@ nav a:hover span::after, nav a.active span::after { width: 100%; }
   text-align: center; padding: 30px 6vw 50px; position: relative; z-index: 1;
 }
 .trust-bar > span {
-  color: var(--muted); font-size: 0.8rem; font-weight: 600;
+  color: var(--warm-600); font-size: 0.8rem; font-weight: 600;
   text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 18px; display: block;
 }
 .trust-logos { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; }
 .trust-logo {
   padding: 10px 22px; border-radius: 12px;
-  background: rgba(249, 115, 22, 0.06); border: 1px solid rgba(249, 115, 22, 0.10);
-  font-weight: 700; font-size: 0.92rem; color: var(--muted); letter-spacing: 0.3px;
-  transition: color 0.25s, border-color 0.25s, background 0.25s;
+  background: rgba(28, 22, 16, 0.5); border: 1px solid rgba(160, 130, 100, 0.15);
+  font-weight: 700; font-size: 0.92rem; color: var(--warm-600); letter-spacing: 0.3px;
+  transition: color 0.25s, border-color 0.25s, background 0.25s, transform 0.25s;
 }
 .tl-booking:hover { color: #003b95; border-color: rgba(0, 59, 149, 0.3); background: rgba(0, 59, 149, 0.08); }
 .tl-expedia:hover { color: #f5b720; border-color: rgba(245, 183, 32, 0.3); background: rgba(245, 183, 32, 0.08); }
@@ -985,7 +1001,7 @@ footer {
 .footer-bottom {
   display: flex; align-items: center; justify-content: space-between; gap: 24px;
   max-width: 1200px; margin: 40px auto 0; padding-top: 28px;
-  border-top: 1px solid rgba(249, 115, 22, 0.06);
+  border-top: 1px solid rgba(160, 130, 100, 0.06);
 }
 .footer-badges { display: flex; gap: 10px; flex-wrap: wrap; }
 .footer-badges span {
@@ -1011,7 +1027,7 @@ footer {
 .nl-input input {
   padding: 9px 14px; border-radius: 12px;
   border: 1px solid rgba(232, 228, 240, 0.15);
-  background: rgba(10, 10, 26, 0.5); font-family: inherit;
+  background: rgba(28, 22, 16, 0.5); font-family: inherit;
   font-size: 0.85rem; color: var(--ink); min-width: 180px;
   transition: border-color 0.2s;
 }
@@ -1021,7 +1037,7 @@ footer {
 .footer-copyright {
   display: flex; align-items: center; justify-content: space-between; gap: 16px;
   max-width: 1200px; margin: 28px auto 0; padding-top: 20px;
-  border-top: 1px solid rgba(249, 115, 22, 0.06);
+  border-top: 1px solid rgba(160, 130, 100, 0.06);
   color: var(--muted); font-size: 0.8rem; flex-wrap: wrap;
 }
 
