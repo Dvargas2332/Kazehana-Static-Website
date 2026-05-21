@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="titleIndex">Workflow | Kazehana Cloud PMS</title>
+    <meta name="description" content="See how Kazehana Cloud PMS onboards your property in weeks — discovery, system build, and launch with dedicated support." data-i18n-meta="metaDescIndex" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800&family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/dark-mode.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Workflow | Kazehana Cloud PMS","description":"See how Kazehana Cloud PMS onboards your property in weeks."}</script>
+  </head>
+  <body>
+
+    <!-- Notice overlay -->
+    <div class="notice-overlay" id="noticeOverlay" role="dialog" aria-modal="true" aria-labelledby="noticeHeading" aria-hidden="true">
+      <div class="notice-card">
+        <h3 id="noticeHeading" data-i18n="noticeTitle">Muy pronto estará disponible el mejor sistema de gestión hotelera.</h3>
+        <p data-i18n="noticeBody">Estamos afinando los últimos detalles para abrir acceso completo.</p>
+        <button class="btn secondary" type="button" id="noticeClose" data-i18n="noticeButton">Entendido</button>
+      </div>
+    </div>
+
+    <!-- Background layer -->
+    <div class="bg-layer" aria-hidden="true">
+      <div class="bg-dots"></div>
+      <div class="bg-blob one"></div>
+      <div class="bg-blob two"></div>
+      <div class="bg-blob three"></div>
+    </div>
+
+    <div class="page">
+
+      <!-- Header -->
+      <header>
+        <div class="brand">
+          <div class="logo"><img src="ico/kazehanalogo.png" alt="Kazehana logo" /></div>
+          <span>Kazehana Cloud PMS</span>
+        </div>
+        <div class="header-actions">
+          <nav>
+            <a href="index.html" data-i18n="navPlatform">Platform</a>
+            <a href="modules.html" data-i18n="navModules">Modules</a>
+            <a href="workflow.html" data-i18n="navWorkflow" class="active">Workflow</a>
+            <a href="faq.html" data-i18n="navFaq">FAQ</a>
+            <a href="contact.html" data-i18n="navContact">Contact</a>
+          </nav>
+          <a class="btn secondary header-login" href="https://client.kazehanacloud.com" data-i18n="navLogin">Log in</a>
+          <div class="lang-select">
+            <label for="langSelect" data-i18n="languageLabel">Language</label>
+            <select id="langSelect" aria-label="Language selector">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="fr">Français</option>
+              <option value="pt">Português</option>
+              <option value="it">Italiano</option>
+              <option value="ja">日本語</option>
+            </select>
+          </div>
+        </div>
+        <button class="header-toggle" id="headerToggle" type="button" aria-label="Toggle header"><span>▾</span></button>
+      </header>
+      <main>
+      <!-- ═══════════ PAGE HERO ────────────── -->
+      <section class="page-hero" data-reveal>
+        <span class="section-tag" data-i18n="workflowTag">Onboarding</span>
+        <h1 data-i18n="workflowTitle">Launch in weeks, not months.</h1>
+        <p class="lead" data-i18n="workflowLead">We map your property, build integrations, and train your team with concierge-level support.</p>
+      </section>
+
+      <!-- ═══════════ WORKFLOW ────────────── -->
+      <section class="section" id="workflow" data-reveal>
+        <div class="steps-row">
+          <div class="step">
+            <div class="step-icon">1</div>
+            <h3 data-i18n="step1Title">Discovery session</h3>
+            <p data-i18n="step1Body">Align on your property mix, service style, and operational pain points.</p>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step">
+            <div class="step-icon">2</div>
+            <h3 data-i18n="step2Title">System build</h3>
+            <p data-i18n="step2Body">Configure room types, restaurant layouts, integrations, and guest messaging.</p>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step">
+            <div class="step-icon">3</div>
+            <h3 data-i18n="step3Title">Launch &amp; tune</h3>
+            <p data-i18n="step3Body">Go live with a dedicated success lead and optimize through the first 30 days.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ TIMELINE ─────────────── -->
+      <section class="section section-alt" data-reveal>
+        <div class="section-head">
+          <span class="section-tag" data-i18n="timelineTag">Timeline</span>
+          <h2 data-i18n="timelineTitle">What to expect, week by week.</h2>
+          <p class="lead" data-i18n="timelineLead">A typical onboarding follows this cadence — we adapt to your pace.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="tl-marker">1</div>
+            <div class="tl-content">
+              <strong data-i18n="tlWeek1Title">Discovery &amp; audit</strong>
+              <p data-i18n="tlWeek1Body">We walk your property, map current workflows, and identify quick wins.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-marker">2</div>
+            <div class="tl-content">
+              <strong data-i18n="tlWeek2Title">Configuration sprint</strong>
+              <p data-i18n="tlWeek2Body">Room types, rate plans, restaurant layouts, and channel connections go live in staging.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-marker">3</div>
+            <div class="tl-content">
+              <strong data-i18n="tlWeek3Title">Team training</strong>
+              <p data-i18n="tlWeek3Body">Role-based sessions for front desk, housekeeping, F&amp;B, and management.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="tl-marker">4</div>
+            <div class="tl-content">
+              <strong data-i18n="tlWeek4Title">Go-live &amp; hypercare</strong>
+              <p data-i18n="tlWeek4Body">Production launch with dedicated support. Daily check-ins for the first 14 days.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ VISION ──────────────── -->
+      <section class="section" id="vision" data-reveal>
+        <div class="section-head">
+          <span class="section-tag" data-i18n="visionTag">Architecture</span>
+          <h2 data-i18n="visionTitle">System vision, mapped.</h2>
+          <p class="lead" data-i18n="visionLead">A shared source of truth connects guests, operations, and revenue.</p>
+        </div>
+        <div class="vision-flow">
+          <div class="vision-card">
+            <div class="vision-icon">🌐</div>
+            <h3 data-i18n="diagram1Title">Guest journey</h3>
+            <p data-i18n="diagram1Body">From booking to post‑stay, every touchpoint stays connected.</p>
+            <div class="vision-steps">
+              <span data-i18n="diagram1Node1">Reservation</span>
+              <span>→</span>
+              <span data-i18n="diagram1Node2">Stay experience</span>
+              <span>→</span>
+              <span data-i18n="diagram1Node3">Loyalty</span>
+            </div>
+          </div>
+          <div class="vision-card">
+            <div class="vision-icon">⚙️</div>
+            <h3 data-i18n="diagram2Title">Operations spine</h3>
+            <p data-i18n="diagram2Body">Teams act on the same real‑time picture across departments.</p>
+            <div class="vision-steps">
+              <span data-i18n="diagram2Node1">Front desk</span>
+              <span>→</span>
+              <span data-i18n="diagram2Node2">Housekeeping</span>
+              <span>→</span>
+              <span data-i18n="diagram2Node3">F&B and spa</span>
+            </div>
+          </div>
+          <div class="vision-card">
+            <div class="vision-icon">📊</div>
+            <h3 data-i18n="diagram3Title">Revenue intelligence</h3>
+            <p data-i18n="diagram3Body">Signals unify pricing, packages, and profit by guest.</p>
+            <div class="vision-steps">
+              <span data-i18n="diagram3Node1">Rate strategy</span>
+              <span>→</span>
+              <span data-i18n="diagram3Node2">Add‑ons</span>
+              <span>→</span>
+              <span data-i18n="diagram3Node3">Forecasts</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ INTEGRATIONS ─────────── -->
+      <section class="section section-alt" data-reveal>
+        <div class="section-head">
+          <span class="section-tag" data-i18n="integrationsTag">Ecosystem</span>
+          <h2 data-i18n="integrationsTitle">Plugs into your stack.</h2>
+          <p class="lead" data-i18n="integrationsLead">Pre-built connectors for the tools your property already uses.</p>
+        </div>
+        <div class="integrations-grid">
+          <div class="integration-card"><span>Booking.com</span></div>
+          <div class="integration-card"><span>Expedia</span></div>
+          <div class="integration-card"><span>Airbnb</span></div>
+          <div class="integration-card"><span>Stripe</span></div>
+          <div class="integration-card"><span>QuickBooks</span></div>
+          <div class="integration-card"><span>Slack</span></div>
+        </div>
+      </section>
+
+      <!-- ═══════════ CTA ──────────────────── -->
+      <section class="section" data-reveal>
+        <div class="section-head">
+          <h2 data-i18n="ctaTitle">Ready to start onboarding?</h2>
+          <p class="lead" data-i18n="ctaBody">Share your property details and we'll send a tailored plan within 48 hours.</p>
+          <div style="margin-top:24px">
+            <a class="btn primary" href="contact.html" data-i18n="heroPrimary">Schedule a demo</a>
+          </div>
+        </div>
+      </section>
+      </main>
+      <!-- Footer -->
+      <footer>
+        <div class="footer-main">
+          <div class="footer-col footer-brand">
+            <div class="footer-logo">
+              <img src="ico/kazehanalogo.png" alt="Kazehana" width="36" height="36" />
+              <strong>Kazehana Cloud PMS</strong>
+            </div>
+            <p data-i18n="footerTagline">Crafted for hotel operations teams.</p>
+            <div class="footer-social">
+              <a href="#" aria-label="LinkedIn" class="social-icon si-linkedin"></a>
+              <a href="#" aria-label="Twitter" class="social-icon si-twitter"></a>
+              <a href="#" aria-label="YouTube" class="social-icon si-youtube"></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4 data-i18n="footerColPlatform">Platform</h4>
+            <a href="modules.html" data-i18n="navModules">Modules</a>
+            <a href="workflow.html" data-i18n="navWorkflow">Workflow</a>
+            <a href="pricing.html" data-i18n="navPricing">Pricing</a>
+            <a href="#" data-i18n="navSecurity">Security</a>
+          </div>
+          <div class="footer-col">
+            <h4 data-i18n="footerColSolutions">Solutions</h4>
+            <a href="#" data-i18n="solutionBoutique">Boutique Hotels</a>
+            <a href="#" data-i18n="solutionResort">Resorts</a>
+            <a href="#" data-i18n="solutionBusiness">Business Hotels</a>
+            <a href="#" data-i18n="solutionHostel">Hostels</a>
+          </div>
+          <div class="footer-col">
+            <h4 data-i18n="footerColResources">Resources</h4>
+            <a href="faq.html" data-i18n="navFaq">FAQ</a>
+            <a href="#" data-i18n="navDocs">Documentation</a>
+            <a href="contact.html" data-i18n="navSupport">Support</a>
+            <a href="#" data-i18n="navBlog">Blog</a>
+          </div>
+          <div class="footer-col">
+            <h4 data-i18n="footerColCompany">Company</h4>
+            <a href="about.html" data-i18n="navAbout">About Us</a>
+            <a href="contact.html" data-i18n="navContact">Contact</a>
+            <a href="#" data-i18n="navPrivacy">Privacy Policy</a>
+            <a href="#" data-i18n="navTerms">Terms of Service</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-badges">
+            <span class="badge-pci">PCI DSS</span>
+            <span class="badge-gdpr">GDPR</span>
+            <span class="badge-ssl">SSL</span>
+          </div>
+          <form class="footer-newsletter" onsubmit="event.preventDefault()">
+            <label data-i18n="newsletterLabel">Stay updated</label>
+            <div class="nl-input">
+              <input type="email" placeholder="your@email.com" aria-label="Email for newsletter" />
+              <button class="btn primary btn-sm" type="submit" data-i18n="newsletterButton">Subscribe</button>
+            </div>
+          </form>
+        </div>
+        <div class="footer-copyright">
+          <span data-i18n="footer">&copy; 2026 Kazehana Cloud PMS. All rights reserved.</span>
+          <div class="lang-select">
+            <label for="langSelectFooter" data-i18n="languageLabel">Language</label>
+            <select id="langSelectFooter" aria-label="Language selector">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="fr">Français</option>
+              <option value="pt">Português</option>
+              <option value="it">Italiano</option>
+              <option value="ja">日本語</option>
+            </select>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script src="js/i18n-data.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/header-toggle.js"></script>
+    <script src="js/notice.js"></script>
+    <script src="js/form-handler.js"></script>
+    <script src="js/dark-mode.js"></script>
+    <script src="js/scroll-reveal.js"></script>
+    <script src="js/smooth-scroll.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) { navigator.serviceWorker.register("/sw.js"); }
+      // Sync footer language selector with header
+      (function() {
+        var footerSelect = document.getElementById("langSelectFooter");
+        var headerSelect = document.getElementById("langSelect");
+        if (footerSelect && headerSelect) {
+          footerSelect.value = headerSelect.value;
+          footerSelect.addEventListener("change", function() {
+            headerSelect.value = this.value;
+            headerSelect.dispatchEvent(new Event("change"));
+          });
+          headerSelect.addEventListener("change", function() {
+            footerSelect.value = this.value;
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="titleIndex">Pricing | Kazehana Cloud PMS</title>
+    <meta name="description" content="Explore Kazehana Cloud PMS pricing tiers — Starter, Growth, and Enterprise plans tailored to your property size." data-i18n-meta="metaDescIndex" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800&family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/dark-mode.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Pricing | Kazehana Cloud PMS","description":"Explore Kazehana Cloud PMS pricing tiers.","about":{"@type":"SoftwareApplication","name":"Kazehana Cloud PMS","offers":{"@type":"AggregateOffer","priceCurrency":"USD"}}}</script>
+  </head>
+  <body>
+
+    <!-- Notice overlay -->
+    <div class="notice-overlay" id="noticeOverlay" role="dialog" aria-modal="true" aria-labelledby="noticeHeading" aria-hidden="true">
+      <div class="notice-card">
+        <h3 id="noticeHeading" data-i18n="noticeTitle">Muy pronto estará disponible el mejor sistema de gestión hotelera.</h3>
+        <p data-i18n="noticeBody">Estamos afinando los últimos detalles para abrir acceso completo.</p>
+        <button class="btn secondary" type="button" id="noticeClose" data-i18n="noticeButton">Entendido</button>
+      </div>
+    </div>
+
+    <!-- Background layer -->
+    <div class="bg-layer" aria-hidden="true">
+      <div class="bg-dots"></div>
+      <div class="bg-blob one"></div>
+      <div class="bg-blob two"></div>
+      <div class="bg-blob three"></div>
+    </div>
+
+    <div class="page">
+
+      <!-- Header -->
+      <header>
+        <div class="brand">
+          <div class="logo"><img src="ico/kazehanalogo.png" alt="Kazehana logo" /></div>
+          <span>Kazehana Cloud PMS</span>
+        </div>
+        <div class="header-actions">
+          <nav>
+            <a href="index.html" data-i18n="navPlatform">Platform</a>
+            <a href="modules.html" data-i18n="navModules">Modules</a>
+            <a href="workflow.html" data-i18n="navWorkflow">Workflow</a>
+            <a href="faq.html" data-i18n="navFaq">FAQ</a>
+            <a href="contact.html" data-i18n="navContact">Contact</a>
+          </nav>
+          <a class="btn secondary header-login" href="https://client.kazehanacloud.com" data-i18n="navLogin">Log in</a>
+          <div class="lang-select">
+            <label for="langSelect" data-i18n="languageLabel">Language</label>
+            <select id="langSelect" aria-label="Language selector">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="fr">Français</option>
+              <option value="pt">Português</option>
+              <option value="it">Italiano</option>
+              <option value="ja">日本語</option>
+            </select>
+          </div>
+        </div>
+        <button class="header-toggle" id="headerToggle" type="button" aria-label="Toggle header"><span>▾</span></button>
+      </header>
+      <main>
+      <!-- ═══════════ PAGE HERO ────────────── -->
+      <section class="page-hero" data-reveal>
+        <span class="section-tag" data-i18n="pricingTag">Pricing</span>
+        <h1 data-i18n="pricingTitle">Transparent pricing,<br>tailored to your property.</h1>
+        <p class="lead" data-i18n="pricingLead">Choose the plan that fits your size and needs. Every tier includes core modules, support, and updates.</p>
+      </section>
+
+      <!-- ═══════════ TIER CARDS ───────────── -->
+      <section class="section" data-reveal>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <div class="pc-header">
+              <h3 data-i18n="pricingStarterTitle">Starter</h3>
+              <span class="pc-range" data-i18n="pricingStarterRange">1–30 rooms</span>
+            </div>
+            <p data-i18n="pricingStarterDesc">For boutique hotels and independent properties getting started with a modern PMS.</p>
+            <ul>
+              <li>Front desk &amp; reservations</li>
+              <li>E-invoicing</li>
+              <li>Basic reporting</li>
+              <li>Email support</li>
+              <li>1 property</li>
+            </ul>
+            <a class="btn secondary" href="contact.html" data-i18n="pricingCta">Contact sales</a>
+          </div>
+          <div class="pricing-card featured">
+            <div class="pc-badge" data-i18n="pricingPopular">Most popular</div>
+            <div class="pc-header">
+              <h3 data-i18n="pricingGrowthTitle">Growth</h3>
+              <span class="pc-range" data-i18n="pricingGrowthRange">30–100 rooms</span>
+            </div>
+            <p data-i18n="pricingGrowthDesc">For growing properties that need full operations, restaurant, and multi-department workflows.</p>
+            <ul>
+              <li>Everything in Starter</li>
+              <li>Restaurant &amp; table management</li>
+              <li>Housekeeping orchestration</li>
+              <li>Management dashboard</li>
+              <li>Accounting module</li>
+              <li>Priority chat support</li>
+              <li>Up to 3 properties</li>
+            </ul>
+            <a class="btn primary" href="contact.html" data-i18n="pricingCta">Contact sales</a>
+          </div>
+          <div class="pricing-card">
+            <div class="pc-header">
+              <h3 data-i18n="pricingEnterpriseTitle">Enterprise</h3>
+              <span class="pc-range" data-i18n="pricingEnterpriseRange">100+ rooms</span>
+            </div>
+            <p data-i18n="pricingEnterpriseDesc">For multi-property groups and chains that need advanced integrations and dedicated support.</p>
+            <ul>
+              <li>Everything in Growth</li>
+              <li>Channel Manager</li>
+              <li>Multi-property dashboard</li>
+              <li>API access</li>
+              <li>Custom integrations</li>
+              <li>24/7 phone support</li>
+              <li>Dedicated success manager</li>
+              <li>Unlimited properties</li>
+            </ul>
+            <a class="btn secondary" href="contact.html" data-i18n="pricingCta">Contact sales</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ COMPARISON TABLE ──────── -->
+      <section class="section section-alt" data-reveal>
+        <div class="section-head">
+          <span class="section-tag" data-i18n="compareTag">Compare</span>
+          <h2 data-i18n="compareTitle">Feature comparison</h2>
+        </div>
+        <div class="compare-table">
+          <table>
+            <thead>
+              <tr>
+                <th data-i18n="compareFeature">Feature</th>
+                <th data-i18n="pricingStarterTitle">Starter</th>
+                <th data-i18n="pricingGrowthTitle">Growth</th>
+                <th data-i18n="pricingEnterpriseTitle">Enterprise</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td data-i18n="compareR1">Front desk &amp; reservations</td><td>✓</td><td>✓</td><td>✓</td></tr>
+              <tr><td data-i18n="compareR2">E-invoicing</td><td>✓</td><td>✓</td><td>✓</td></tr>
+              <tr><td data-i18n="compareR3">Restaurant management</td><td>—</td><td>✓</td><td>✓</td></tr>
+              <tr><td data-i18n="compareR4">Housekeeping</td><td>—</td><td>✓</td><td>✓</td></tr>
+              <tr><td data-i18n="compareR5">Accounting module</td><td>—</td><td>✓</td><td>✓</td></tr>
+              <tr><td data-i18n="compareR6">Channel Manager</td><td>—</td><td>—</td><td>✓</td></tr>
+              <tr><td data-i18n="compareR7">Multi-property</td><td>—</td><td>Up to 3</td><td>Unlimited</td></tr>
+              <tr><td data-i18n="compareR8">API access</td><td>—</td><td>—</td><td>✓</td></tr>
+              <tr><td data-i18n="compareR9">Support level</td><td>Email</td><td>Priority chat</td><td>24/7 phone</td></tr>
+              <tr><td data-i18n="compareR10">Dedicated success manager</td><td>—</td><td>—</td><td>✓</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ═══════════ ADD-ONS ──────────────── -->
+      <section class="section" data-reveal>
+        <div class="section-head">
+          <span class="section-tag" data-i18n="addonsTag">Add-ons</span>
+          <h2 data-i18n="addonsTitle">Extend your platform.</h2>
+          <p class="lead" data-i18n="addonsLead">Optional modules available on any plan.</p>
+        </div>
+        <div class="addons-grid">
+          <div class="addon-card">
+            <strong data-i18n="addon1Title">Channel Manager</strong>
+            <p data-i18n="addon1Desc">Real-time OTA sync with Booking.com, Expedia, Airbnb, and more.</p>
+          </div>
+          <div class="addon-card">
+            <strong data-i18n="addon2Title">Revenue Management</strong>
+            <p data-i18n="addon2Desc">AI-powered pricing recommendations based on demand and competitor rates.</p>
+          </div>
+          <div class="addon-card">
+            <strong data-i18n="addon3Title">Guest Portal</strong>
+            <p data-i18n="addon3Desc">Self-service check-in, upsells, and digital key delivery for guests.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ CTA ──────────────────── -->
+      <section class="section section-alt" data-reveal>
+        <div class="cta-simple">
+          <h2 data-i18n="pricingCtaTitle">Not sure which plan fits?</h2>
+          <p data-i18n="pricingCtaBody">Let's talk. We'll help you choose the right tier based on your property size and goals.</p>
+          <a class="btn primary" href="contact.html" data-i18n="heroPrimary" style="margin-top:20px">Schedule a demo</a>
+        </div>
+      </section>
+      </main>
+      <!-- Footer -->
+      <footer>
+        <div class="footer-main">
+          <div class="footer-col footer-brand">
+            <div class="footer-logo">
+              <img src="ico/kazehanalogo.png" alt="Kazehana" width="36" height="36" />
+              <strong>Kazehana Cloud PMS</strong>
+            </div>
+            <p data-i18n="footerTagline">Crafted for hotel operations teams.</p>
+            <div class="footer-social">
+              <a href="#" aria-label="LinkedIn" class="social-icon si-linkedin"></a>
+              <a href="#" aria-label="Twitter" class="social-icon si-twitter"></a>
+              <a href="#" aria-label="YouTube" class="social-icon si-youtube"></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4 data-i18n="footerColPlatform">Platform</h4>
+            <a href="modules.html" data-i18n="navModules">Modules</a>
+            <a href="workflow.html" data-i18n="navWorkflow">Workflow</a>
+            <a href="pricing.html" data-i18n="navPricing">Pricing</a>
+            <a href="#" data-i18n="navSecurity">Security</a>
+          </div>
+          <div class="footer-col">
+            <h4 data-i18n="footerColSolutions">Solutions</h4>
+            <a href="#" data-i18n="solutionBoutique">Boutique Hotels</a>
+            <a href="#" data-i18n="solutionResort">Resorts</a>
+            <a href="#" data-i18n="solutionBusiness">Business Hotels</a>
+            <a href="#" data-i18n="solutionHostel">Hostels</a>
+          </div>
+          <div class="footer-col">
+            <h4 data-i18n="footerColResources">Resources</h4>
+            <a href="faq.html" data-i18n="navFaq">FAQ</a>
+            <a href="#" data-i18n="navDocs">Documentation</a>
+            <a href="contact.html" data-i18n="navSupport">Support</a>
+            <a href="#" data-i18n="navBlog">Blog</a>
+          </div>
+          <div class="footer-col">
+            <h4 data-i18n="footerColCompany">Company</h4>
+            <a href="about.html" data-i18n="navAbout">About Us</a>
+            <a href="contact.html" data-i18n="navContact">Contact</a>
+            <a href="#" data-i18n="navPrivacy">Privacy Policy</a>
+            <a href="#" data-i18n="navTerms">Terms of Service</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-badges">
+            <span class="badge-pci">PCI DSS</span>
+            <span class="badge-gdpr">GDPR</span>
+            <span class="badge-ssl">SSL</span>
+          </div>
+          <form class="footer-newsletter" onsubmit="event.preventDefault()">
+            <label data-i18n="newsletterLabel">Stay updated</label>
+            <div class="nl-input">
+              <input type="email" placeholder="your@email.com" aria-label="Email for newsletter" />
+              <button class="btn primary btn-sm" type="submit" data-i18n="newsletterButton">Subscribe</button>
+            </div>
+          </form>
+        </div>
+        <div class="footer-copyright">
+          <span data-i18n="footer">&copy; 2026 Kazehana Cloud PMS. All rights reserved.</span>
+          <div class="lang-select">
+            <label for="langSelectFooter" data-i18n="languageLabel">Language</label>
+            <select id="langSelectFooter" aria-label="Language selector">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="fr">Français</option>
+              <option value="pt">Português</option>
+              <option value="it">Italiano</option>
+              <option value="ja">日本語</option>
+            </select>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script src="js/i18n-data.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/header-toggle.js"></script>
+    <script src="js/notice.js"></script>
+    <script src="js/form-handler.js"></script>
+    <script src="js/dark-mode.js"></script>
+    <script src="js/scroll-reveal.js"></script>
+    <script src="js/smooth-scroll.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) { navigator.serviceWorker.register("/sw.js"); }
+      // Sync footer language selector with header
+      (function() {
+        var footerSelect = document.getElementById("langSelectFooter");
+        var headerSelect = document.getElementById("langSelect");
+        if (footerSelect && headerSelect) {
+          footerSelect.value = headerSelect.value;
+          footerSelect.addEventListener("change", function() {
+            headerSelect.value = this.value;
+            headerSelect.dispatchEvent(new Event("change"));
+          });
+          headerSelect.addEventListener("change", function() {
+            footerSelect.value = this.value;
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

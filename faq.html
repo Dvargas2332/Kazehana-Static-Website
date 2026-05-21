@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="titleIndex">FAQ | Kazehana Cloud PMS</title>
+    <meta name="description" content="Frequently asked questions about Kazehana Cloud PMS — onboarding, security, integrations, pricing, and support." data-i18n-meta="metaDescIndex" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,800&family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/dark-mode.css" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Kazehana Cloud PMS?","acceptedAnswer":{"@type":"Answer","text":"Kazehana Cloud PMS is a modern property management system for hotels and restaurants."}}]}</script>
+  </head>
+  <body>
+
+    <!-- Notice overlay -->
+    <div class="notice-overlay" id="noticeOverlay" role="dialog" aria-modal="true" aria-labelledby="noticeHeading" aria-hidden="true">
+      <div class="notice-card">
+        <h3 id="noticeHeading" data-i18n="noticeTitle">Muy pronto estará disponible el mejor sistema de gestión hotelera.</h3>
+        <p data-i18n="noticeBody">Estamos afinando los últimos detalles para abrir acceso completo.</p>
+        <button class="btn secondary" type="button" id="noticeClose" data-i18n="noticeButton">Entendido</button>
+      </div>
+    </div>
+
+    <!-- Background layer -->
+    <div class="bg-layer" aria-hidden="true">
+      <div class="bg-dots"></div>
+      <div class="bg-blob one"></div>
+      <div class="bg-blob two"></div>
+      <div class="bg-blob three"></div>
+    </div>
+
+    <div class="page">
+
+      <!-- Header -->
+      <header>
+        <div class="brand">
+          <div class="logo"><img src="ico/kazehanalogo.png" alt="Kazehana logo" /></div>
+          <span>Kazehana Cloud PMS</span>
+        </div>
+        <div class="header-actions">
+          <nav>
+            <a href="index.html" data-i18n="navPlatform">Platform</a>
+            <a href="modules.html" data-i18n="navModules">Modules</a>
+            <a href="workflow.html" data-i18n="navWorkflow">Workflow</a>
+            <a href="faq.html" data-i18n="navFaq" class="active">FAQ</a>
+            <a href="contact.html" data-i18n="navContact">Contact</a>
+          </nav>
+          <a class="btn secondary header-login" href="https://client.kazehanacloud.com" data-i18n="navLogin">Log in</a>
+          <div class="lang-select">
+            <label for="langSelect" data-i18n="languageLabel">Language</label>
+            <select id="langSelect" aria-label="Language selector">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="fr">Français</option>
+              <option value="pt">Português</option>
+              <option value="it">Italiano</option>
+              <option value="ja">日本語</option>
+            </select>
+          </div>
+        </div>
+        <button class="header-toggle" id="headerToggle" type="button" aria-label="Toggle header"><span>▾</span></button>
+      </header>
+      <main>
+      <!-- ═══════════ PAGE HERO ────────────── -->
+      <section class="page-hero" data-reveal>
+        <span class="section-tag" data-i18n="faqTag">Help</span>
+        <h1 data-i18n="faqTitle">Frequently asked questions</h1>
+      </section>
+
+      <!-- ═══════════ FAQ ─────────────────── -->
+      <section class="section" id="faq" data-reveal>
+        <div class="faq-grid">
+          <details class="faq-item">
+            <summary data-i18n="faq1Q">How fast can we go live?</summary>
+            <p data-i18n="faq1A">Most hotels launch in 3–6 weeks, depending on integrations and data migration.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq2Q">Do you include training?</summary>
+            <p data-i18n="faq2A">Yes. We deliver role-based training and stay with your team through the first month.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq3Q">Can we import reservations and folios?</summary>
+            <p data-i18n="faq3A">We import historical and future reservations, guest profiles, and folios on request.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq4Q">Is support 24/7?</summary>
+            <p data-i18n="faq4A">We offer extended support hours, with 24/7 options for multi‑property groups.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq5Q">Do you offer memberships or plans?</summary>
+            <p data-i18n="faq5A">Yes. We have memberships by package, and we help you choose the right tier based on your hotel size and needs.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq6Q">Is my data secure?</summary>
+            <p data-i18n="faq6A">Yes. We use encryption at rest and in transit, maintain PCI DSS compliance, and follow GDPR standards for data privacy.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq7Q">Which OTAs do you integrate with?</summary>
+            <p data-i18n="faq7A">We connect with Booking.com, Expedia, Airbnb, Agoda, and major regional OTAs through our channel manager.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq8Q">Do you support multiple properties and languages?</summary>
+            <p data-i18n="faq8A">Yes. Manage multiple properties from one dashboard. The interface supports English, Spanish, French, Portuguese, Italian, and Japanese.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq9Q">What hardware do we need?</summary>
+            <p data-i18n="faq9A">None beyond a modern web browser. Kazehana runs on any device — desktop, tablet, or mobile. No local servers to maintain.</p>
+          </details>
+          <details class="faq-item">
+            <summary data-i18n="faq10Q">Can we cancel anytime?</summary>
+            <p data-i18n="faq10A">We offer flexible terms. You can export your data at any time — no lock-in, no hidden fees.</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- ═══════════ SUPPORT CHANNELS ─────── -->
+      <section class="section section-alt" data-reveal>
+        <div class="section-head">
+          <span class="section-tag" data-i18n="supportTag">Support</span>
+          <h2 data-i18n="supportTitle">We're here to help.</h2>
+        </div>
+        <div class="support-grid">
+          <div class="support-card">
+            <div class="support-icon">✉️</div>
+            <h3 data-i18n="supportEmailTitle">Email</h3>
+            <p data-i18n="supportEmailDesc">support@kazehanacloud.com</p>
+            <small data-i18n="supportEmailTime">Replies within 4 hours</small>
+          </div>
+          <div class="support-card">
+            <div class="support-icon">📞</div>
+            <h3 data-i18n="supportPhoneTitle">Phone</h3>
+            <p data-i18n="supportPhoneDesc">+1 (555) 000-0000</p>
+            <small data-i18n="supportPhoneTime">Mon–Fri, 8am–8pm EST</small>
+          </div>
+          <div class="support-card">
+            <div class="support-icon">📚</div>
+            <h3 data-i18n="supportDocsTitle">Knowledge base</h3>
+            <p data-i18n="supportDocsDesc">Searchable guides and tutorials</p>
+            <small data-i18n="supportDocsTime">Available 24/7</small>
+          </div>
+          <div class="support-card">
+            <div class="support-icon">💬</div>
+            <h3 data-i18n="supportChatTitle">Live chat</h3>
+            <p data-i18n="supportChatDesc">In-app messaging</p>
+            <small data-i18n="supportChatTime">For active subscribers</small>
+          </div>
+        </div>
+      </section>
+
+      <!-- ═══════════ CTA ──────────────────── -->
+      <section class="section" data-reveal>
+        <div class="section-head">
+          <h2 data-i18n="faqCtaTitle">Still have questions?</h2>
+          <p class="lead" data-i18n="faqCtaBody">Reach out and we'll get back to you within 48 hours.</p>
+          <div style="margin-top:24px">
+            <a class="btn primary" href="contact.html" data-i18n="navContact">Get in touch</a>
+          </div>
+        </div>
+      </section>
+      </main>
+      <!-- Footer -->
+      <footer>
+        <div class="footer-main">
+          <div class="footer-col footer-brand">
+            <div class="footer-logo">
+              <img src="ico/kazehanalogo.png" alt="Kazehana" width="36" height="36" />
+              <strong>Kazehana Cloud PMS</strong>
+            </div>
+            <p data-i18n="footerTagline">Crafted for hotel operations teams.</p>
+            <div class="footer-social">
+              <a href="#" aria-label="LinkedIn" class="social-icon si-linkedin"></a>
+              <a href="#" aria-label="Twitter" class="social-icon si-twitter"></a>
+              <a href="#" aria-label="YouTube" class="social-icon si-youtube"></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4 data-i18n="footerColPlatform">Platform</h4>
+            <a href="modules.html" data-i18n="navModules">Modules</a>
+            <a href="workflow.html" data-i18n="navWorkflow">Workflow</a>
+            <a href="pricing.html" data-i18n="navPricing">Pricing</a>
+            <a href="#" data-i18n="navSecurity">Security</a>
+          </div>
+          <div class="footer-col">
+            <h4 data-i18n="footerColSolutions">Solutions</h4>
+            <a href="#" data-i18n="solutionBoutique">Boutique Hotels</a>
+            <a href="#" data-i18n="solutionResort">Resorts</a>
+            <a href="#" data-i18n="solutionBusiness">Business Hotels</a>
+            <a href="#" data-i18n="solutionHostel">Hostels</a>
+          </div>
+          <div class="footer-col">
+            <h4 data-i18n="footerColResources">Resources</h4>
+            <a href="faq.html" data-i18n="navFaq">FAQ</a>
+            <a href="#" data-i18n="navDocs">Documentation</a>
+            <a href="contact.html" data-i18n="navSupport">Support</a>
+            <a href="#" data-i18n="navBlog">Blog</a>
+          </div>
+          <div class="footer-col">
+            <h4 data-i18n="footerColCompany">Company</h4>
+            <a href="about.html" data-i18n="navAbout">About Us</a>
+            <a href="contact.html" data-i18n="navContact">Contact</a>
+            <a href="#" data-i18n="navPrivacy">Privacy Policy</a>
+            <a href="#" data-i18n="navTerms">Terms of Service</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-badges">
+            <span class="badge-pci">PCI DSS</span>
+            <span class="badge-gdpr">GDPR</span>
+            <span class="badge-ssl">SSL</span>
+          </div>
+          <form class="footer-newsletter" onsubmit="event.preventDefault()">
+            <label data-i18n="newsletterLabel">Stay updated</label>
+            <div class="nl-input">
+              <input type="email" placeholder="your@email.com" aria-label="Email for newsletter" />
+              <button class="btn primary btn-sm" type="submit" data-i18n="newsletterButton">Subscribe</button>
+            </div>
+          </form>
+        </div>
+        <div class="footer-copyright">
+          <span data-i18n="footer">&copy; 2026 Kazehana Cloud PMS. All rights reserved.</span>
+          <div class="lang-select">
+            <label for="langSelectFooter" data-i18n="languageLabel">Language</label>
+            <select id="langSelectFooter" aria-label="Language selector">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="fr">Français</option>
+              <option value="pt">Português</option>
+              <option value="it">Italiano</option>
+              <option value="ja">日本語</option>
+            </select>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script src="js/i18n-data.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/header-toggle.js"></script>
+    <script src="js/notice.js"></script>
+    <script src="js/form-handler.js"></script>
+    <script src="js/dark-mode.js"></script>
+    <script src="js/scroll-reveal.js"></script>
+    <script src="js/smooth-scroll.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) { navigator.serviceWorker.register("/sw.js"); }
+      // Sync footer language selector with header
+      (function() {
+        var footerSelect = document.getElementById("langSelectFooter");
+        var headerSelect = document.getElementById("langSelect");
+        if (footerSelect && headerSelect) {
+          footerSelect.value = headerSelect.value;
+          footerSelect.addEventListener("change", function() {
+            headerSelect.value = this.value;
+            headerSelect.dispatchEvent(new Event("change"));
+          });
+          headerSelect.addEventListener("change", function() {
+            footerSelect.value = this.value;
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

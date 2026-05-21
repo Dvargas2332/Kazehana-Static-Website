@@ -1,0 +1,80 @@
+      <!-- ═══════════ PAGE HERO ────────────── -->
+      <section class="page-hero" data-reveal>
+        <span class="section-tag" data-i18n="contactTag">Contact</span>
+        <h1 data-i18n="ctaTitle">Ready to see<br>Kazehana in action?</h1>
+        <p class="lead" data-i18n="ctaBody">Share your property details and we'll send a tailored demo within 48 hours.</p>
+      </section>
+
+      <!-- ═══════════ CONTACT FORM + INFO ──── -->
+      <section class="section" id="contact" data-reveal>
+        <div class="contact-layout">
+          <form class="cta-form" id="forminfo" data-endpoint="https://form.kazehanacloud.com/api/forminfo/public">
+            <div class="form-grid">
+              <label class="field">
+                <span data-i18n="formNameLabel">Full name</span>
+                <input type="text" name="fullName" autocomplete="name" required placeholder="Jane Doe" data-i18n-placeholder="formNamePlaceholder" />
+              </label>
+              <label class="field">
+                <span data-i18n="formCompanyLabel">Hotel / Company</span>
+                <input type="text" name="company" autocomplete="organization" required placeholder="Kazehana Hotels" data-i18n-placeholder="formCompanyPlaceholder" />
+              </label>
+              <label class="field">
+                <span data-i18n="formEmailLabel">Work email</span>
+                <input type="email" name="workEmail" autocomplete="email" required placeholder="name@hotel.com" data-i18n-placeholder="formEmailPlaceholder" />
+              </label>
+              <label class="field">
+                <span data-i18n="formPhoneLabel">Phone</span>
+                <input type="tel" name="phone" autocomplete="tel" required placeholder="+1 555 123 4567" data-i18n-placeholder="formPhonePlaceholder" />
+              </label>
+              <label class="field">
+                <span data-i18n="formRoomsLabel">Rooms</span>
+                <input type="number" name="rooms" min="1" required placeholder="120" data-i18n-placeholder="formRoomsPlaceholder" />
+              </label>
+              <label class="field">
+                <span data-i18n="formLocationLabel">City / Country</span>
+                <input type="text" name="cityCountry" autocomplete="address-level2" required placeholder="San José, Costa Rica" data-i18n-placeholder="formLocationPlaceholder" />
+              </label>
+            </div>
+            <label class="field">
+              <span data-i18n="formMessageLabel">What do you need?</span>
+              <textarea name="needs" rows="3" data-i18n-placeholder="formMessagePlaceholder" placeholder="Tell us about your property, goals, and timeline."></textarea>
+            </label>
+            <label class="field" aria-hidden="true" style="position:absolute;left:-9999px">
+              <span>Website</span>
+              <input type="text" name="website" autocomplete="off" tabindex="-1" />
+            </label>
+            <div class="cf-turnstile" data-sitekey="bc828cygvbc28gq79923"></div>
+            <div class="form-footer">
+              <button class="btn primary" type="submit" data-i18n="formSubmit">Request a demo</button>
+              <p class="form-note" data-i18n="formNote">We reply within 48 hours.</p>
+              <p class="form-note" id="forminfo-status" aria-live="polite"></p>
+            </div>
+          </form>
+          <div class="contact-info">
+            <div class="contact-card">
+              <strong data-i18n="contactEmailLabel">Email</strong>
+              <span>contact@kazehanacloud.com</span>
+            </div>
+            <div class="contact-card">
+              <strong data-i18n="contactPhoneLabel">Phone</strong>
+              <span>+1 (555) 000-0000</span>
+            </div>
+            <div class="contact-card">
+              <strong data-i18n="contactHoursLabel">Hours</strong>
+              <span data-i18n="contactHoursValue">Mon–Fri, 8am–8pm EST</span>
+            </div>
+            <div class="contact-card">
+              <strong data-i18n="contactSocialLabel">Follow us</strong>
+              <div class="footer-social">
+                <a href="#" aria-label="LinkedIn" class="social-icon si-linkedin"></a>
+                <a href="#" aria-label="Twitter" class="social-icon si-twitter"></a>
+                <a href="#" aria-label="YouTube" class="social-icon si-youtube"></a>
+              </div>
+            </div>
+            <div class="map-placeholder">
+              <div class="map-dot"></div>
+              <span data-i18n="mapPlaceholder">Kazehana HQ — Global, remote-first</span>
+            </div>
+          </div>
+        </div>
+      </section>

@@ -6,7 +6,8 @@
   "description": "Standalone static landing page",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "build": "python3 scripts/stitch.py",
+    "start": "npm run build && node server.js",
     "dev": "node server.js",
     "test": "node scripts/validate.js"
   }
