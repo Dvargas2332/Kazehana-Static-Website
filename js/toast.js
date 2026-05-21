@@ -17,8 +17,17 @@
       toast.setAttribute("role", "status");
 
       var icon = type === "success" ? "✓" : type === "error" ? "✕" : "ℹ";
-      toast.innerHTML = '<span class="toast-icon">' + icon + "</span><span class="toast-msg">" + message + "</span>";
 
+      var iconSpan = document.createElement("span");
+      iconSpan.className = "toast-icon";
+      iconSpan.textContent = icon;
+
+      var msgSpan = document.createElement("span");
+      msgSpan.className = "toast-msg";
+      msgSpan.textContent = message;
+
+      toast.appendChild(iconSpan);
+      toast.appendChild(msgSpan);
       container.appendChild(toast);
 
       // Trigger reflow for animation
