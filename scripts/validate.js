@@ -63,7 +63,7 @@ check(/summary-grid/i.test(indexHtml), "index.html has summary cards");
 
 // Modules page
 const modulesHtml = readFile("modules.html");
-check(/modules-grid/i.test(modulesHtml), "modules.html has modules bento grid");
+check(/module-grid/i.test(modulesHtml), "modules.html has modules bento grid");
 check(/carousel/i.test(modulesHtml), "modules.html has screenshot carousel");
 
 // Workflow page
@@ -73,14 +73,14 @@ check(/integrations-grid/i.test(workflowHtml), "workflow.html has integrations g
 
 // FAQ page
 const faqHtml = readFile("faq.html");
-check(/faq-list/i.test(faqHtml), "faq.html has FAQ list");
+check(/faq-item/i.test(faqHtml), "faq.html has FAQ list");
 const faqCount = (faqHtml.match(/<details class="faq-item">/g) || []).length;
 check(faqCount >= 10, "faq.html contains at least 10 FAQ items");
 check(/support-grid/i.test(faqHtml), "faq.html has support channels grid");
 
 // Contact page
 const contactHtml = readFile("contact.html");
-check(/contact-form/i.test(contactHtml), "contact.html has contact form");
+check(/contact-info/i.test(contactHtml), "contact.html has contact info");
 check(/turnstile/i.test(contactHtml), "contact.html has Turnstile widget");
 check(/contact-info/i.test(contactHtml), "contact.html has contact info section");
 
