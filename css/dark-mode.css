@@ -1,18 +1,50 @@
 /* Light mode overrides — applied when html[data-dark-mode="light"] */
 html[data-dark-mode="light"] {
-  --ink: #1a1f36;
-  --muted: #5b6378;
+  --ink: #1c1917;
+  --muted: #78716c;
   --accent: #ea580c;
-  --accent-2: #0ea5e9;
-  --accent-3: #ef4444;
-  --leaf: #10b981;
+  --accent-light: #f97316;
+  --accent-pale: #fb923c;
+  --accent-warm: #fdba74;
+  --accent-dark: #c2410c;
+  --accent-deep: #7c2d12;
   --sand: #fafaf9;
-  --sky: #f0ede8;
+  --sky: #f5f0eb;
   --card: rgba(255, 255, 255, 0.7);
   --card-border: rgba(234, 88, 12, 0.10);
   --card-hover: rgba(255, 255, 255, 0.9);
   --glow-orange: 0 12px 40px rgba(234, 88, 12, 0.10);
-  --glow-cyan: 0 12px 40px rgba(14, 165, 233, 0.08);
+  --glow-warm: 0 12px 40px rgba(249, 115, 22, 0.08);
+}
+
+/* Smooth transitions for theme switch */
+html[data-dark-mode="light"],
+html[data-dark-mode="light"] body,
+html[data-dark-mode="light"] header,
+html[data-dark-mode="light"] footer,
+html[data-dark-mode="light"] .section,
+html[data-dark-mode="light"] .card,
+html[data-dark-mode="light"] .module-card,
+html[data-dark-mode="light"] .pricing-card,
+html[data-dark-mode="light"] .hotel-card,
+html[data-dark-mode="light"] .quote,
+html[data-dark-mode="light"] .vision-card,
+html[data-dark-mode="light"] .support-card,
+html[data-dark-mode="light"] .contact-card,
+html[data-dark-mode="light"] .integration-card,
+html[data-dark-mode="light"] .addon-card,
+html[data-dark-mode="light"] .award-card,
+html[data-dark-mode="light"] .value-card,
+html[data-dark-mode="light"] .summary-card,
+html[data-dark-mode="light"] .carousel,
+html[data-dark-mode="light"] .cta-form,
+html[data-dark-mode="light"] .hero-dash,
+html[data-dark-mode="light"] .faq-item,
+html[data-dark-mode="light"] .field input,
+html[data-dark-mode="light"] .field select,
+html[data-dark-mode="light"] .field textarea,
+html[data-dark-mode="light"] .nl-input input {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 html[data-dark-mode="light"] body {
@@ -22,7 +54,7 @@ html[data-dark-mode="light"] body {
 
 html[data-dark-mode="light"] .bg-dots {
   background-image: radial-gradient(circle, rgba(234, 88, 12, 0.06) 1px, transparent 1px);
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
 html[data-dark-mode="light"] header {
@@ -127,16 +159,16 @@ html[data-dark-mode="light"] .footer-bottom { border-top-color: rgba(26, 31, 54,
 html[data-dark-mode="light"] .footer-copyright { border-top-color: rgba(26, 31, 54, 0.06); }
 html[data-dark-mode="light"] .nav a.active { color: var(--ink); }
 html[data-dark-mode="light"] .badge-pci {
-  color: #0d9488; border-color: rgba(13, 148, 136, 0.3);
-  background: rgba(13, 148, 136, 0.06);
+  color: #c2410c; border-color: rgba(194, 65, 12, 0.3);
+  background: rgba(194, 65, 12, 0.06);
 }
 html[data-dark-mode="light"] .badge-gdpr {
-  color: #059669; border-color: rgba(5, 150, 105, 0.3);
-  background: rgba(5, 150, 105, 0.06);
-}
-html[data-dark-mode="light"] .badge-ssl {
   color: #ea580c; border-color: rgba(234, 88, 12, 0.3);
   background: rgba(234, 88, 12, 0.06);
+}
+html[data-dark-mode="light"] .badge-ssl {
+  color: #f97316; border-color: rgba(249, 115, 22, 0.3);
+  background: rgba(249, 115, 22, 0.06);
 }
 
 /* Page hero light mode */

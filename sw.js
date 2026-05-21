@@ -1,4 +1,4 @@
-const CACHE = 'kazehana-v2';
+const CACHE = 'kazehana-v1.0.0';
 const FILES = [
   '/',
   '/index.html',

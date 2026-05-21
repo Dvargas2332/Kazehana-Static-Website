@@ -1,8 +1,21 @@
 #!/usr/bin/env python3
 """stitch.py — Assembles HTML pages from partials + content files."""
-import os, sys
+import os, sys, json, re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+def get_package_version():
+    try:
+        with open(os.path.join(ROOT, "package.json"), "r", encoding="utf-8") as f:
+            pkg = json.load(f)
+            return pkg.get("version", "1.0.0")
+    except Exception:
+        return "1.0.0"
+
+PACKAGE_VERSION = get_package_version()
+
+def inject_sw_version(sw_content):
+    return sw_content.replace("const CACHE = 'kazehana-v2';", f"const CACHE = 'kazehana-v{PACKAGE_VERSION}';")
 
 def read(path):
     with open(os.path.join(ROOT, path), "r", encoding="utf-8") as f:
@@ -90,7 +103,21 @@ for page in PAGES:
         # Create placeholder content for pages without content yet
         content = f'      <section class="section" data-reveal><div class="section-head"><h2>{page["title"]}</h2><p class="lead">Content coming soon.</p></div></section>\n'
     output = header + content + footer
+    
+    # Validate no leftover placeholders
+    leftover = re.findall(r'\{\{[A-Z_]+\}\}', output)
+    if leftover:
+        print(f"WARNING: {page['file']} has leftover placeholders: {leftover}")
+    
     write(page["file"], output)
     print(f"Built {page['file']}")
+
+# Update service worker cache version
+sw_path = os.path.join(ROOT, "sw.js")
+if os.path.exists(sw_path):
+    sw_content = read("sw.js")
+    new_sw = inject_sw_version(sw_content)
+    write("sw.js", new_sw)
+    print(f"Updated sw.js cache version to v{PACKAGE_VERSION}")
 
 print("Done. All pages assembled.")

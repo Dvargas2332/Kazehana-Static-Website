@@ -36,30 +36,27 @@
       <!-- Header -->
       <header>
         <div class="brand">
-          <div class="logo"><img src="ico/kazehanalogo.png" alt="Kazehana logo" /></div>
-          <span>Kazehana Cloud PMS</span>
+          <a href="index.html" class="logo"><img src="ico/kazehanalogo.png" alt="Kazehana logo" /></a>
+          <a href="index.html" class="brand-name">Kazehana Cloud PMS</a>
         </div>
         <div class="header-actions">
           <nav>
-            <a href="index.html" data-i18n="navPlatform"{{ACTIVE_PLATFORM}}>Platform</a>
-            <a href="modules.html" data-i18n="navModules"{{ACTIVE_MODULES}}>Modules</a>
-            <a href="workflow.html" data-i18n="navWorkflow"{{ACTIVE_WORKFLOW}}>Workflow</a>
-            <a href="faq.html" data-i18n="navFaq"{{ACTIVE_FAQ}}>FAQ</a>
-            <a href="contact.html" data-i18n="navContact"{{ACTIVE_CONTACT}}>Contact</a>
+            <a href="index.html" data-i18n="navPlatform"{{ACTIVE_PLATFORM}}><span>Platform</span></a>
+            <a href="modules.html" data-i18n="navModules"{{ACTIVE_MODULES}}><span>Modules</span></a>
+            <a href="workflow.html" data-i18n="navWorkflow"{{ACTIVE_WORKFLOW}}><span>Workflow</span></a>
+            <a href="faq.html" data-i18n="navFaq"{{ACTIVE_FAQ}}><span>FAQ</span></a>
+            <a href="contact.html" data-i18n="navContact"{{ACTIVE_CONTACT}}><span>Contact</span></a>
           </nav>
           <a class="btn secondary header-login" href="https://client.kazehanacloud.com" data-i18n="navLogin">Log in</a>
           <div class="lang-select">
             <label for="langSelect" data-i18n="languageLabel">Language</label>
-            <select id="langSelect" aria-label="Language selector">
-              <option value="en">English</option>
-              <option value="es">Español</option>
-              <option value="fr">Français</option>
-              <option value="pt">Português</option>
-              <option value="it">Italiano</option>
-              <option value="ja">日本語</option>
-            </select>
+            <select id="langSelect" aria-label="Language selector"></select>
           </div>
         </div>
-        <button class="header-toggle" id="headerToggle" type="button" aria-label="Toggle header"><span>▾</span></button>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
       </header>
       <main>

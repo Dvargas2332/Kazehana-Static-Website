@@ -30,6 +30,11 @@
         // Ignore
       }
       updateToggleIcon(pref);
+
+      if (window.KZT && window.KZT.showToast) {
+        var msg = pref === "dark" ? "Dark mode enabled" : "Light mode enabled";
+        window.KZT.showToast(msg, "info", 2000);
+      }
     }
 
     function updateToggleIcon(pref) {

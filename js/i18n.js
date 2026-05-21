@@ -4,6 +4,15 @@
   var supported = Object.keys(translations);
   var defaultLang = "en";
 
+  var langLabels = {
+    en: "English",
+    es: "Español",
+    fr: "Français",
+    pt: "Português",
+    it: "Italiano",
+    ja: "日本語"
+  };
+
   function normalize(lang) {
     return (lang || "").toLowerCase().split("-")[0];
   }
@@ -39,17 +48,28 @@
 
   function updateHeaderHeight() {
     var header = document.querySelector("header");
-    var toggle = document.getElementById("headerToggle");
     if (!header) return;
     var height = Math.ceil(header.getBoundingClientRect().height);
-
-    if (header.classList.contains("is-collapsed") && toggle) {
-      var toggleSize = toggle.getBoundingClientRect().height;
-      var gap = getCssNumber("--toggle-gap", 10);
-      height = Math.ceil(toggleSize + gap);
-    }
-
     document.documentElement.style.setProperty("--header-height", height + "px");
+  }
+
+  function populateLanguageSelector(id) {
+    var sel = document.getElementById(id);
+    if (!sel) return;
+    if (sel.children.length > 0) return; // Already populated
+    supported.forEach(function (lang) {
+      var opt = document.createElement("option");
+      opt.value = lang;
+      opt.textContent = langLabels[lang] || lang;
+      sel.appendChild(opt);
+    });
+  }
+
+  function syncLanguageSelectors(value) {
+    var headerSel = document.getElementById("langSelect");
+    var footerSel = document.getElementById("langSelectFooter");
+    if (headerSel) headerSel.value = value;
+    if (footerSel) footerSel.value = value;
   }
 
   function applyTranslations(lang) {
@@ -91,20 +111,40 @@
     updateHeaderHeight();
   }
 
+  // Populate selectors before setting values
+  populateLanguageSelector("langSelect");
+  populateLanguageSelector("langSelectFooter");
+
   // Language selector
   var select = document.getElementById("langSelect");
+  var footerSelect = document.getElementById("langSelectFooter");
   var initialLang = getPreferredLanguage();
+
+  function onLangChange(nextLang) {
+    applyTranslations(nextLang);
+    syncLanguageSelectors(nextLang);
+    try {
+      localStorage.setItem("siteLang", nextLang);
+    } catch (err) {
+      // Ignore storage errors
+    }
+    if (window.KZT && window.KZT.showToast) {
+      var labels = { en: "English", es: "Español", fr: "Français", pt: "Português", it: "Italiano", ja: "日本語" };
+      window.KZT.showToast("Language: " + (labels[nextLang] || nextLang), "info", 2000);
+    }
+  }
 
   if (select) {
     select.value = initialLang;
     select.addEventListener("change", function (event) {
-      var nextLang = event.target.value;
-      applyTranslations(nextLang);
-      try {
-        localStorage.setItem("siteLang", nextLang);
-      } catch (err) {
-        // Ignore storage errors
-      }
+      onLangChange(event.target.value);
+    });
+  }
+
+  if (footerSelect) {
+    footerSelect.value = initialLang;
+    footerSelect.addEventListener("change", function (event) {
+      onLangChange(event.target.value);
     });
   }
 

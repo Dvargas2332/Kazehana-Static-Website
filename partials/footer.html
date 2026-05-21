@@ -61,14 +61,7 @@
           <span data-i18n="footer">&copy; 2026 Kazehana Cloud PMS. All rights reserved.</span>
           <div class="lang-select">
             <label for="langSelectFooter" data-i18n="languageLabel">Language</label>
-            <select id="langSelectFooter" aria-label="Language selector">
-              <option value="en">English</option>
-              <option value="es">Español</option>
-              <option value="fr">Français</option>
-              <option value="pt">Português</option>
-              <option value="it">Italiano</option>
-              <option value="ja">日本語</option>
-            </select>
+            <select id="langSelectFooter" aria-label="Language selector"></select>
           </div>
         </div>
       </footer>
@@ -77,31 +70,19 @@
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script src="js/i18n-data.js"></script>
     <script src="js/i18n.js"></script>
+    <script src="js/toast.js"></script>
     <script src="js/carousel.js"></script>
-    <script src="js/header-toggle.js"></script>
+    <script src="js/header-sticky.js"></script>
+    <script src="js/mobile-menu.js"></script>
     <script src="js/notice.js"></script>
     <script src="js/form-handler.js"></script>
     <script src="js/dark-mode.js"></script>
     <script src="js/scroll-reveal.js"></script>
     <script src="js/smooth-scroll.js"></script>
+    <script src="js/scroll-to-top.js"></script>
     <script src="js/main.js"></script>
     <script>
       if ("serviceWorker" in navigator) { navigator.serviceWorker.register("/sw.js"); }
-      // Sync footer language selector with header
-      (function() {
-        var footerSelect = document.getElementById("langSelectFooter");
-        var headerSelect = document.getElementById("langSelect");
-        if (footerSelect && headerSelect) {
-          footerSelect.value = headerSelect.value;
-          footerSelect.addEventListener("change", function() {
-            headerSelect.value = this.value;
-            headerSelect.dispatchEvent(new Event("change"));
-          });
-          headerSelect.addEventListener("change", function() {
-            footerSelect.value = this.value;
-          });
-        }
-      })();
     </script>
   </body>
 </html>

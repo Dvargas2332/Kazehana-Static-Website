@@ -14,11 +14,21 @@
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
     );
 
     document.querySelectorAll("[data-reveal]").forEach(function (el) {
       observer.observe(el);
+    });
+
+    // Stagger children inside data-reveal-stagger containers
+    document.querySelectorAll("[data-reveal-stagger]").forEach(function (container) {
+      var children = container.children;
+      for (var i = 0; i < children.length; i++) {
+        children[i].style.transitionDelay = (i * 80) + "ms";
+        children[i].classList.add("reveal-child");
+        observer.observe(children[i]);
+      }
     });
   }
 

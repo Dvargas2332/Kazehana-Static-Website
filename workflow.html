@@ -36,31 +36,28 @@
       <!-- Header -->
       <header>
         <div class="brand">
-          <div class="logo"><img src="ico/kazehanalogo.png" alt="Kazehana logo" /></div>
-          <span>Kazehana Cloud PMS</span>
+          <a href="index.html" class="logo"><img src="ico/kazehanalogo.png" alt="Kazehana logo" /></a>
+          <a href="index.html" class="brand-name">Kazehana Cloud PMS</a>
         </div>
         <div class="header-actions">
           <nav>
-            <a href="index.html" data-i18n="navPlatform">Platform</a>
-            <a href="modules.html" data-i18n="navModules">Modules</a>
-            <a href="workflow.html" data-i18n="navWorkflow" class="active">Workflow</a>
-            <a href="faq.html" data-i18n="navFaq">FAQ</a>
-            <a href="contact.html" data-i18n="navContact">Contact</a>
+            <a href="index.html" data-i18n="navPlatform"><span>Platform</span></a>
+            <a href="modules.html" data-i18n="navModules"><span>Modules</span></a>
+            <a href="workflow.html" data-i18n="navWorkflow" class="active"><span>Workflow</span></a>
+            <a href="faq.html" data-i18n="navFaq"><span>FAQ</span></a>
+            <a href="contact.html" data-i18n="navContact"><span>Contact</span></a>
           </nav>
           <a class="btn secondary header-login" href="https://client.kazehanacloud.com" data-i18n="navLogin">Log in</a>
           <div class="lang-select">
             <label for="langSelect" data-i18n="languageLabel">Language</label>
-            <select id="langSelect" aria-label="Language selector">
-              <option value="en">English</option>
-              <option value="es">Español</option>
-              <option value="fr">Français</option>
-              <option value="pt">Português</option>
-              <option value="it">Italiano</option>
-              <option value="ja">日本語</option>
-            </select>
+            <select id="langSelect" aria-label="Language selector"></select>
           </div>
         </div>
-        <button class="header-toggle" id="headerToggle" type="button" aria-label="Toggle header"><span>▾</span></button>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
       </header>
       <main>
       <!-- ═══════════ PAGE HERO ────────────── -->
@@ -269,14 +266,7 @@
           <span data-i18n="footer">&copy; 2026 Kazehana Cloud PMS. All rights reserved.</span>
           <div class="lang-select">
             <label for="langSelectFooter" data-i18n="languageLabel">Language</label>
-            <select id="langSelectFooter" aria-label="Language selector">
-              <option value="en">English</option>
-              <option value="es">Español</option>
-              <option value="fr">Français</option>
-              <option value="pt">Português</option>
-              <option value="it">Italiano</option>
-              <option value="ja">日本語</option>
-            </select>
+            <select id="langSelectFooter" aria-label="Language selector"></select>
           </div>
         </div>
       </footer>
@@ -285,31 +275,19 @@
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script src="js/i18n-data.js"></script>
     <script src="js/i18n.js"></script>
+    <script src="js/toast.js"></script>
     <script src="js/carousel.js"></script>
-    <script src="js/header-toggle.js"></script>
+    <script src="js/header-sticky.js"></script>
+    <script src="js/mobile-menu.js"></script>
     <script src="js/notice.js"></script>
     <script src="js/form-handler.js"></script>
     <script src="js/dark-mode.js"></script>
     <script src="js/scroll-reveal.js"></script>
     <script src="js/smooth-scroll.js"></script>
+    <script src="js/scroll-to-top.js"></script>
     <script src="js/main.js"></script>
     <script>
       if ("serviceWorker" in navigator) { navigator.serviceWorker.register("/sw.js"); }
-      // Sync footer language selector with header
-      (function() {
-        var footerSelect = document.getElementById("langSelectFooter");
-        var headerSelect = document.getElementById("langSelect");
-        if (footerSelect && headerSelect) {
-          footerSelect.value = headerSelect.value;
-          footerSelect.addEventListener("change", function() {
-            headerSelect.value = this.value;
-            headerSelect.dispatchEvent(new Event("change"));
-          });
-          headerSelect.addEventListener("change", function() {
-            footerSelect.value = this.value;
-          });
-        }
-      })();
     </script>
   </body>
 </html>
