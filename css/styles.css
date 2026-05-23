@@ -463,15 +463,18 @@ nav a:hover span::after, nav a.active span::after { width: 100%; }
   background: var(--card); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--card-border);
   position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
 }
-.feature-visual::after {
+.feature-visual img {
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 0.85; transition: opacity 0.3s;
+}
+.feature-row:hover .feature-visual img { opacity: 1; }
+.feature-visual.is-placeholder::after {
   content: ""; position: absolute; inset: 0;
-  opacity: 0.3;
+  opacity: 0.25;
+  background: linear-gradient(135deg, var(--accent), transparent 60%);
 }
-.fv-1::after { background: linear-gradient(135deg, var(--accent), transparent 60%); }
-.fv-2::after { background: linear-gradient(225deg, var(--accent-light), transparent 60%); }
-.fv-3::after { background: linear-gradient(135deg, var(--accent-pale), transparent 60%); }
-.fv-4::after { background: linear-gradient(225deg, var(--accent-warm), transparent 60%); }
 
 /* ── Workflow (horizontal steps) ───────── */
 .steps-row {
@@ -531,12 +534,23 @@ nav a:hover span::after, nav a.active span::after { width: 100%; }
 }
 .shot {
   height: 260px; border-radius: var(--radius-lg);
-  padding: 22px; display: flex; align-items: flex-end;
-  color: #fff; font-weight: 600; font-size: 1.1rem; letter-spacing: 0.3px;
+  overflow: hidden; position: relative;
+  background: linear-gradient(135deg, var(--warm-900), var(--warm-800));
+  display: flex; align-items: flex-end;
 }
-.shot-1 { background: linear-gradient(135deg, #1a0a02, #f97316); }
-.shot-2 { background: linear-gradient(135deg, #1a1208, var(--accent-light)); }
-.shot-3 { background: linear-gradient(135deg, #1a0f06, var(--accent-pale)); }
+.shot img, .shot video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover;
+  opacity: 0.9; transition: opacity 0.3s;
+}
+.shot:hover img, .shot:hover video { opacity: 1; }
+.shot-label {
+  position: relative; z-index: 1;
+  padding: 22px;
+  color: #fff; font-weight: 600; font-size: 1.1rem; letter-spacing: 0.3px;
+  background: linear-gradient(to top, rgba(10,8,6,0.8), transparent);
+  width: 100%;
+}
 .shot-text h3 { font-size: 1.2rem; margin-bottom: 8px; }
 .shot-text p { color: var(--muted); line-height: 1.55; }
 
@@ -1083,6 +1097,30 @@ footer {
 .toast-info .toast-icon { background: rgba(251, 146, 60, 0.12); color: var(--accent-light); }
 .toast-success .toast-icon { background: rgba(253, 186, 116, 0.15); color: var(--accent-pale); }
 .toast-error .toast-icon { background: rgba(194, 65, 12, 0.15); color: var(--accent-deep); }
+
+/* ── Video placeholders ────────────────── */
+.video-placeholder {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+}
+.video-placeholder video {
+  width: 100%; height: auto; display: block;
+}
+.video-placeholder .video-overlay {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  background: rgba(10, 8, 6, 0.4);
+  pointer-events: none;
+}
+.video-placeholder .video-overlay span {
+  padding: 10px 24px; border-radius: 999px;
+  background: var(--card-hover); border: 1px solid var(--card-border);
+  color: var(--ink); font-size: 0.85rem; font-weight: 600;
+  backdrop-filter: blur(10px);
+}
 
 /* ── Scroll to top ─────────────────────── */
 .scroll-to-top {
